@@ -1,0 +1,40 @@
+{
+  "parameters": [
+    {
+      "name": "data-tchmi-stmcaxisonline",
+      "displayName": "stMcAxisOnline",
+      "visible": true,
+      "type": "tchmi:server#/definitions/PLC1.ST_McAxisOnline",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "stMcAxisOnline",
+      "propertySetterName": "setStMcAxisOnline",
+      "propertyGetterName": "getStMcAxisOnline",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-ftextscalefactor",
+      "displayName": "fTextScaleFactor",
+      "visible": true,
+      "type": "tchmi:general#/definitions/INT",
+      "category": "",
+      "description": "",
+      "defaultValueInternal": 5,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "fTextScaleFactor",
+      "propertySetterName": "setFTextScaleFactor",
+      "propertyGetterName": "getFTextScaleFactor",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "../Packages/Beckhoff.TwinCAT.HMI.Framework.12.746.3/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

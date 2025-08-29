@@ -1,0 +1,1722 @@
+<div id="UserControl1_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="800" data-tchmi-creator-viewport-height="700" data-tchmi-creator-visibility="Visible">
+
+    <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+        {
+        "color": "rgba(255, 255, 255, 1)"
+        }
+    </script>
+
+    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+        {
+        "color": "rgba(0, 0, 0, 1)"
+        }
+    </script>
+
+    <div id="MainMenu" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="5" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="true" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-creator-visibility="Visible">
+
+        <div id="Menu_NcAxis_Button" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="80" data-tchmi-height-unit="%" data-tchmi-left="2.5" data-tchmi-left-unit="%" data-tchmi-text="NC Axis" data-tchmi-top="10" data-tchmi-top-unit="%" data-tchmi-width="25" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" style="color:red;" data-tchmi-visibility="Visible" data-tchmi-creator-locked="True" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%pp%fTextScaleFactor%/pp%*1.5*%ctrl%Menu_NcAxis_Button::RenderedHeight%/ctrl%%/f%" data-tchmi-creator-visibility="Visible">
+
+
+
+
+            <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "TcHmiButton.onMouseClick",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "AxisNcAxis_Window/Contents/AxisNcAxis_WindowNcAxis_Window.content"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseClick",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%NcAxis_Window::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%NcAxis_Window::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MotorMonitoring_Window::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Hidden"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MotorMonitoring_Window::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 0
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+        </div>
+
+        <div id="Menu_MotorMonitoring_Button" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="80" data-tchmi-height-unit="%" data-tchmi-left="30" data-tchmi-left-unit="%" data-tchmi-text="Motor Monitoring" data-tchmi-top="10" data-tchmi-top-unit="%" data-tchmi-width="25" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-width-mode="Value" data-tchmi-creator-locked="True" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%pp%fTextScaleFactor%/pp%*1.5* %ctrl%Menu_MotorMonitoring_Button::RenderedHeight%/ctrl%%/f%">
+
+
+            <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "TcHmiButton_1.onMouseClick",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiRegion::TargetContent%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/ContentPath",
+          "value": "AxisNcAxis_Window/Contents/AxisNcAxis_WindowFunctions.content"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseClick",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MotorMonitoring_Window::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MotorMonitoring_Window::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%NcAxis_Window::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Hidden"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%NcAxis_Window::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 0
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+        </div>
+        {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%Axis::stAxisParameters::AxisAcc%/pp%",
+        "value": {
+        "objectType": "Symbol",
+        "valueType": "tchmi:general#/definitions/String",
+        "symbolExpression": "%ctrl%Dynamics_Direct_Deceleration_Value::Value%/ctrl%"
+        },
+        "asyncWait": true
+        },
+        {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%Axis::stAxisParameters::eParameters%/pp%",
+        "value": {
+        "objectType": "StaticValue",
+        "valueType": "tchmi:server#/definitions/PLC1.E_Axis_Parameters",
+        "value": 22
+        },
+        "asyncWait": true
+        }
+        ]
+
+</div>
+
+    <div id="NcAxis_Window" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="95" data-tchmi-height-unit="%" data-tchmi-left="0.0" data-tchmi-left-unit="%" data-tchmi-top="5" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="true" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-opacity="1" data-tchmi-creator-locked="True" data-tchmi-creator-visibility="Visible" data-tchmi-visibility="Visible" data-tchmi-zindex="1">
+
+        <div id="NcAxis_StatusLog" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="25" data-tchmi-height-unit="%" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-top="37.5" data-tchmi-top-unit="%" data-tchmi-width="40" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-creator-visibility="Visible" data-tchmi-is-enabled="true">
+
+            <div id="NcAxis_StatusLog_Ready" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Ready" data-tchmi-top="20" data-tchmi-top-unit="%" data-tchmi-width="45" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_StatusLog_Ready::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%*0.7%/f%" data-tchmi-is-enabled="false" data-tchmi-state-symbol="%pp%stMcAxisOnline::stStatus::stAxisStatus::Operational%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+            </div>
+
+            <div id="NcAxis_StatusLog_Calibrated" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Calibrated" data-tchmi-top="45" data-tchmi-top-unit="%" data-tchmi-width="45" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_StatusLog_Calibrated::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%*0.7%/f%" data-tchmi-is-enabled="false" data-tchmi-state-symbol="%pp%stMcAxisOnline::stStatus::stAxisStatus::Homed%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+            </div>
+
+            <div id="NcAxis_StatusLog_HasJob" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Has Job" data-tchmi-top="70" data-tchmi-top-unit="%" data-tchmi-width="45" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_StatusLog_HasJob::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%*0.7%/f%" data-tchmi-is-enabled="false" data-tchmi-state-symbol="%pp%stMcAxisOnline::stStatus::stAxisStatus::HasJob%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+            </div>
+
+            <div id="NcAxis_StatusLog_NotMoving" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="55" data-tchmi-left-unit="%" data-tchmi-text="NOT Moving" data-tchmi-top="20" data-tchmi-top-unit="%" data-tchmi-width="45" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_StatusLog_NotMoving::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%*0.7%/f%" data-tchmi-is-enabled="false" data-tchmi-toggle-state="Normal" data-tchmi-state-symbol="%pp%stMcAxisOnline::stStatus::stAxisStatus::NotMoving%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+
+
+            </div>
+
+            <div id="NcAxis_StatusLog_MovingBw" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="55" data-tchmi-left-unit="%" data-tchmi-text="Moving Bw" data-tchmi-top="70" data-tchmi-top-unit="%" data-tchmi-width="45" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_StatusLog_MovingBw::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%*0.7%/f%" data-tchmi-is-enabled="false" data-tchmi-state-symbol="%pp%stMcAxisOnline::stStatus::stAxisStatus::NegativeDirection%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+            </div>
+
+            <div id="NcAxis_StatusLog_MovingFw" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="55" data-tchmi-left-unit="%" data-tchmi-text="Moving Fw" data-tchmi-top="45" data-tchmi-top-unit="%" data-tchmi-width="45" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_StatusLog_MovingFw::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%*0.7%/f%" data-tchmi-is-enabled="false" data-tchmi-state-symbol="%pp%stMcAxisOnline::stStatus::stAxisStatus::PositiveDirection%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+            </div>
+
+            <div id="NcAxis_StatusLog_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Status (log.)" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="95" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_StatusLog_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+            </div>
+
+
+            <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                {
+                "color": "rgba(200, 200, 200, 1)"
+                }
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                {
+                "left": 1,
+                "right": 1,
+                "top": 1,
+                "bottom": 1,
+                "leftUnit": "px",
+                "rightUnit": "px",
+                "topUnit": "px",
+                "bottomUnit": "px"
+                }
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                {
+                "left": "Solid",
+                "right": "Solid",
+                "top": "Solid",
+                "bottom": "Solid"
+                }
+            </script>
+        </div>
+
+        <div id="NcAxis_StatusPhys" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="25" data-tchmi-height-unit="%" data-tchmi-left="45" data-tchmi-left-unit="%" data-tchmi-top="37.5" data-tchmi-top-unit="%" data-tchmi-width="25" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-creator-visibility="Visible" data-tchmi-is-enabled="true">
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_StatusPhys_CoupledMode" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Coupled Mode" data-tchmi-top="20" data-tchmi-top-unit="%" data-tchmi-width="90" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_StatusPhys_CoupledMode::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%*0.7%/f%" data-tchmi-is-enabled="false" data-tchmi-state-symbol="%pp%stMcAxisOnline::stStatus::bCoupled%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_StatusPhys_InTargetPos" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="In Target Pos." data-tchmi-top="45" data-tchmi-top-unit="%" data-tchmi-width="90" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_StatusPhys_InTargetPos::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%*0.7%/f%" data-tchmi-is-enabled="false" data-tchmi-state-symbol="%pp%stMcAxisOnline::stStatus::stAxisStatus::InTargetPosition%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_StatusPhys_InPosRange" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="In Pos. Range" data-tchmi-top="70" data-tchmi-top-unit="%" data-tchmi-width="90" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_StatusPhys_InPosRange::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%*0.7%/f%" data-tchmi-is-enabled="false" data-tchmi-state-symbol="%pp%stMcAxisOnline::stStatus::stAxisStatus::InPositionArea%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+            </div>
+
+            <div id="NcAxis_StatusPhys_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Status (phys.)" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="95" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_StatusPhys_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True">
+
+            </div>
+
+
+            <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                {
+                "color": "rgba(200, 200, 200, 1)"
+                }
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                {
+                "left": 1,
+                "right": 1,
+                "top": 1,
+                "bottom": 1,
+                "leftUnit": "px",
+                "rightUnit": "px",
+                "topUnit": "px",
+                "bottomUnit": "px"
+                }
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                {
+                "left": "Solid",
+                "right": "Solid",
+                "top": "Solid",
+                "bottom": "Solid"
+                }
+            </script>
+
+        </div>
+
+        <div id="NcAxis_Enabling" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="25" data-tchmi-height-unit="%" data-tchmi-top="37.5" data-tchmi-top-unit="%" data-tchmi-width="25" data-tchmi-width-unit="%" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-left-unit="%" data-tchmi-left="73" data-tchmi-creator-visibility="Visible" data-tchmi-right-unit="px" data-tchmi-is-enabled="true">
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Enabling_Controller" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Controller" data-tchmi-top="20" data-tchmi-top-unit="%" data-tchmi-width="50" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Enabling_Controller::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%*0.7%/f%" data-tchmi-state-symbol="%pp%stMcAxisOnline::mcPower::bEnable%/pp%" data-tchmi-is-enabled="true">
+
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Enabling_FeedFw" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Feed Fw" data-tchmi-top="45" data-tchmi-top-unit="%" data-tchmi-width="50" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Enabling_FeedFw::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%*0.7%/f%" data-tchmi-state-symbol="%pp%stMcAxisOnline::mcPower::bEnable_Positive%/pp%" data-tchmi-is-enabled="true">
+
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Enabling_FeedBw" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCheckbox" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Feed Bw" data-tchmi-top="70" data-tchmi-top-unit="%" data-tchmi-width="50" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Enabling_FeedBw::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%*0.7%/f%" data-tchmi-state-symbol="%pp%stMcAxisOnline::mcPower::bEnable_Negative%/pp%" data-tchmi-is-enabled="true">
+
+            </div>
+
+            <div id="NcAxis_Enabling_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="5" data-tchmi-left-unit="%" data-tchmi-text="Enabling" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="95" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Enabling_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True">
+
+            </div>
+
+
+            <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                {
+                "color": "rgba(200, 200, 200, 1)"
+                }
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                {
+                "left": 1,
+                "right": 1,
+                "top": 1,
+                "bottom": 1,
+                "leftUnit": "px",
+                "rightUnit": "px",
+                "topUnit": "px",
+                "bottomUnit": "px"
+                }
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                {
+                "left": "Solid",
+                "right": "Solid",
+                "top": "Solid",
+                "bottom": "Solid"
+                }
+            </script>
+            <div id="NcAxis_Enabling_Override_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="57.5" data-tchmi-left-unit="%" data-tchmi-text="Override:" data-tchmi-top="20" data-tchmi-top-unit="%" data-tchmi-width="40" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Enabling_Override_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-text-horizontal-alignment="Left">
+
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Enabling_Override_Button" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="57.5" data-tchmi-left-unit="%" data-tchmi-text="ALL" data-tchmi-top="70" data-tchmi-top-unit="%" data-tchmi-width="40" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Enabling_Override_Button::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-is-enabled="true">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onMouseClick",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%stMcAxisOnline::mcPower::bEnable%/pp%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%stMcAxisOnline::mcPower::bEnable_Positive%/pp%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%stMcAxisOnline::mcPower::bEnable_Negative%/pp%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%stMcAxisOnline::mcPower::lrOverride%/pp%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/LREAL",
+          "value": 100.0
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+            </div>
+<div id="NcAxis_Enabling_Override_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="0" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="57.5" data-tchmi-left-unit="%" data-tchmi-reset-to-last-valid-value="True" data-tchmi-top="45" data-tchmi-top-unit="%" data-tchmi-value="%f%%pp%stMcAxisOnline::mcPower::lrOverride%/pp%%/f%" data-tchmi-width="40" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-value-font-size-unit="%" data-tchmi-auto-select-text="true" data-tchmi-value-font-size="%f%%ctrl%NcAxis_Enabling_Override_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "TcHmiNumericInput.onValueChanged",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%stMcAxisOnline::stAxisParameter::fDriveVeloReferenz%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%TcHmiNumericInput::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "Nc_Axis_ManualMove_ReferenceVelocity_Value_1.onValueChanged",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%stMcAxisOnline::mcPower::lrOverride%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%Nc_Axis_ManualMove_ReferenceVelocity_Value::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onValueChanged",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%stMcAxisOnline::mcPower::lrOverride%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctx%owner::Value%/ctx%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+</div>
+</div>
+
+        <div id="NcAxis_Values" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-top="2" data-tchmi-top-unit="%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-width="96" data-tchmi-height="33" data-tchmi-creator-locked="True" data-tchmi-creator-visibility="Visible" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px">
+
+
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_ActualPosition" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{0|.4f}&quot;,%pp%stMcAxisOnline::stStatus::lrActPos%/pp%)%/f%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="65" data-tchmi-width-unit="%" data-tchmi-word-wrap="false" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_ActualPosition::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-is-enabled="true" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                    {
+                    "color": "rgba(100, 100, 100, 1)"
+                    }
+                </script>
+
+
+
+                <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                    {
+                    "left": 1,
+                    "right": 1,
+                    "top": 1,
+                    "bottom": 1,
+                    "leftUnit": "px",
+                    "rightUnit": "px",
+                    "topUnit": "px",
+                    "bottomUnit": "px"
+                    }
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                    {
+                    "left": "Solid",
+                    "right": "Solid",
+                    "top": "Solid",
+                    "bottom": "Solid"
+                    }
+                </script>
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_SetpointPosition" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="70" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_SetpointPosition_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{0|.4f}&quot;, %pp%stMcAxisOnline::stStatus::lrSetPos%/pp%)%/f%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_SetpointPosition_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                        "left": 0,
+                        "right": 0,
+                        "top": 0,
+                        "bottom": 0,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_SetpointPosition_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Setpoint Position:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_SetpointPosition_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_SetpointPosition_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[mm]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_SetpointPosition_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_SetpointVelocity" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="70" data-tchmi-left-unit="%" data-tchmi-top="35" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_SetpointVelocity_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{0|.4f}&quot;,%pp%stMcAxisOnline::stStatus::lrSetVelo%/pp%)%/f%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_SetpointVelocity_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_SetpointVelocity_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Setpoint Velocity:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_SetpointVelocity_Text::RenderedHeight%/ctrl% * %pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_SetpointVelocity_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[mm/s]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_SetpointVelocity_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_Error" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="70" data-tchmi-left-unit="%" data-tchmi-top="70" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_Error_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{%u} (0x{%x})&quot;,%pp%stMcAxisOnline::stStatus::udiNcErrorCode%/pp%, %pp%stMcAxisOnline::stStatus::udiNcErrorCode%/pp%)%/f%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Error_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                        "left": 0,
+                        "right": 0,
+                        "top": 0,
+                        "bottom": 0,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_Error_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Error:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Error_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_LagDistance" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="35" data-tchmi-left-unit="%" data-tchmi-top="35" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_LagDistance_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{0|.4f}&quot;,%pp%stMcAxisOnline::stStatus::lrPosDiff%/pp%)%/f%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_LagDistance_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_LagDistance_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Lag Distance (min/max):" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_LagDistance_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_LagDistance_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[mm]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_LagDistance_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_Override" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="70" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_Override_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{0|.4f}&quot;,%pp%stMcAxisOnline::mcPower::lrOverride%/pp%)%/f%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_Override_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Override:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_Override_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[%]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_ActualVelocity" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="35" data-tchmi-left-unit="%" data-tchmi-top="70" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_ActualVelocity_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{0|.4f}&quot;,%pp%stMcAxisOnline::stStatus::lrActVelo%/pp%)%/f%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_ActualVelocity_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_ActualVelocity_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Actual Velocity:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_LagDistance_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_ActualVelocity_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[mm/s]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_ActualVelocity_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_AxisID" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="35" data-tchmi-top-unit="%" data-tchmi-width="10" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_AxisID_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%pp%stMcAxisOnline::stStatus::dwAxisId%/pp%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_LagDistance_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_AxisID_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Axis ID:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_LagDistance_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_AxisName" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="10" data-tchmi-left-unit="%" data-tchmi-top="35" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_AxisName_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%pp%stMcAxisOnline::stStatus::sAxisName%/pp%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_LagDistance_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_Values_AxisName_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Axis Name:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_LagDistance_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_ManualMove" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="33" data-tchmi-height-unit="%" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-top="65" data-tchmi-top-unit="%" data-tchmi-width="96" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-creator-visibility="Visible">
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_ManualMove_ReferenceVelocity" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="55" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="45" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_ManualMove_ReferenceVelocity_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Reference Velocity:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_ReferenceVelocity_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_ManualMove_ReferenceVelocity_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[mm/s]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_ReferenceVelocity_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+<div id="Nc_Axis_ManualMove_ReferenceVelocity_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="4" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-reset-to-last-valid-value="True" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-value="%f%%pp%stMcAxisOnline::stAxisParameter::fDriveVeloReferenz%/pp%%/f%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-value-font-size-unit="%" data-tchmi-auto-select-text="true" data-tchmi-value-font-size="%f%%ctrl%Nc_Axis_ManualMove_ReferenceVelocity_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "TcHmiNumericInput.onValueChanged",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%stMcAxisOnline::stAxisParameter::fDriveVeloReferenz%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%TcHmiNumericInput::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onValueChanged",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%stMcAxisOnline::stAxisParameter::fDriveVeloReferenz%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctx%owner::Value%/ctx%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+</div>
+</div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_ManualMove_TargetPosition" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="45" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_ManualMove_TargetPosition_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Target Position:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_TargetPosition_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_ManualMove_TargetPosition_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[mm]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_TargetPosition_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+<div id="NcAxis_ManualMove_TargetPosition_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="4" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-reset-to-last-valid-value="True" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-value="%f%%pp%stMcAxisOnline::mcMoveAbsolute::lrPosition%/pp%%/f%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-value-font-size-unit="%" data-tchmi-auto-select-text="true" data-tchmi-value-font-size="%f%%ctrl%NcAxis_ManualMove_TargetPosition_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "TcHmiNumericInput_1.onValueChanged",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%stMcAxisOnline::mcMoveAbsolute::lrPosition%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%TcHmiNumericInput_1::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onValueChanged",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%stMcAxisOnline::mcMoveAbsolute::lrPosition%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctx%owner::Value%/ctx%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+</div>
+</div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_ManualMove_TargetVelocity" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="35" data-tchmi-top-unit="%" data-tchmi-width="45" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_ManualMove_TargetVelocity_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Target Velocity:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_TargetPosition_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="NcAxis_ManualMove_TargetVelocity_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[mm/s]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_TargetVelocity_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+<div id="NcAxis_ManualMove_TargetVelocity_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="4" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-reset-to-last-valid-value="True" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-value="%f%%pp%stMcAxisOnline::mcMoveAbsolute::lrVelocity%/pp%%/f%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-value-font-size-unit="%" data-tchmi-auto-select-text="true" data-tchmi-value-font-size="%f%%ctrl%NcAxis_ManualMove_TargetVelocity_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "TcHmiNumericInput_2.onValueChanged",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%stMcAxisOnline::mcMoveAbsolute::lrVelocity%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%TcHmiNumericInput::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onValueChanged",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%stMcAxisOnline::mcMoveAbsolute::lrVelocity%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctx%owner::Value%/ctx%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+</div>
+</div>
+
+            <div id="NcAxis_ManualMove_F2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="12.5" data-tchmi-left-unit="%" data-tchmi-text="-" data-tchmi-top="70.0" data-tchmi-top-unit="%" data-tchmi-width="10" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-creator-locked="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_F2::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-state-symbol="%pp%stMcAxisOnline::mcJog::bSlowBackward%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                    {
+                    "color": "rgba(200, 200, 0, 1)"
+                    }
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+            </div>
+
+            <div id="NcAxis_ManualMove_F3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="25" data-tchmi-left-unit="%" data-tchmi-text="+" data-tchmi-top="70.0" data-tchmi-top-unit="%" data-tchmi-width="10" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-creator-locked="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_F3::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-state-symbol="%pp%stMcAxisOnline::mcJog::bSlowForward%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                    {
+                    "color": "rgba(200, 200, 0, 1)"
+                    }
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+            </div>
+
+            <div id="NcAxis_ManualMove_F4" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="37.5" data-tchmi-left-unit="%" data-tchmi-text="++" data-tchmi-top="70.0" data-tchmi-top-unit="%" data-tchmi-width="10" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-creator-locked="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_F4::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-state-symbol="%pp%stMcAxisOnline::mcJog::bFastForward%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                    {
+                    "color": "rgba(200, 200, 0, 1)"
+                    }
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+
+            </div>
+
+            <div id="NcAxis_ManualMove_F5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="50" data-tchmi-left-unit="%" data-tchmi-text="START" data-tchmi-top="70.0" data-tchmi-top-unit="%" data-tchmi-width="10" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-creator-locked="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_F5::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%/2%/f%" data-tchmi-state-symbol="%pp%stMcAxisOnline::mcMoveAbsolute::bExecute%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                    {
+                    "color": "rgba(0, 200, 0, 1)"
+                    }
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+            </div>
+
+            <div id="NcAxis_ManualMove_F6" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="62.5" data-tchmi-left-unit="%" data-tchmi-text="STOP" data-tchmi-top="70.0" data-tchmi-top-unit="%" data-tchmi-width="10" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-creator-locked="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_F6::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%/2%/f%" data-tchmi-state-symbol="%pp%stMcAxisOnline::mcStop::bExecute%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                    {
+                    "color": "rgba(200, 0, 0, 1)"
+                    }
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+
+            </div>
+
+            <div id="NcAxis_ManualMove_F8" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="77.5" data-tchmi-left-unit="%" data-tchmi-text="RESET" data-tchmi-top="70.0" data-tchmi-top-unit="%" data-tchmi-width="10" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-creator-locked="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_F8::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%/2%/f%" data-tchmi-state-symbol="%pp%stMcAxisOnline::mcHome::bExecute%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                    {
+                    "color": "rgba(0, 163, 255, 1)"
+                    }
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+
+            </div>
+
+            <div id="NcAxis_ManualMove_F9" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="90" data-tchmi-left-unit="%" data-tchmi-text="HOME" data-tchmi-top="70.0" data-tchmi-top-unit="%" data-tchmi-width="10" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-creator-locked="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_F9::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%/2%/f%" data-tchmi-state-symbol="%pp%stMcAxisOnline::mcReset::bExecute%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                    {
+                    "color": "rgba(0, 163, 255, 1)"
+                    }
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+
+            </div>
+
+            <div id="NcAxis_ManualMove_F1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="--" data-tchmi-top="70.0" data-tchmi-top-unit="%" data-tchmi-width="10" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-creator-locked="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%NcAxis_ManualMove_F1::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-state-symbol="%pp%stMcAxisOnline::mcJog::bFastBackward%/pp%">
+
+
+                <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                    {
+                    "color": "rgba(200, 200, 0, 1)"
+                    }
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                    {
+                    "color": "rgba(0, 0, 0, 1)"
+                    }
+                </script>
+
+               
+            </div>
+</div>
+        <div id="NcAxis_Keyboard" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiKeyboard" data-tchmi-label-font-size="14" data-tchmi-layout-file="KeyboardLayouts/US - compact.keyboard.json" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-scale-mode="ScaleToFit" data-tchmi-top="2" data-tchmi-top-unit="%" data-tchmi-width="96" data-tchmi-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-height-unit="%" data-tchmi-height="34.0" data-tchmi-creator-locked="True" data-tchmi-creator-visibility="Collapsed" data-tchmi-indirect-input-font-size-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-longpress-delay="300" data-tchmi-repetition-delay="50" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-visibility="Hidden">
+            <script data-tchmi-target-attribute="data-tchmi-indirect-input-padding" type="application/json">
+                {
+                "top": 3,
+                "right": 3,
+                "bottom": 3,
+                "left": 3
+                }
+            </script>
+            <script data-tchmi-target-attribute="data-tchmi-keyboard-padding" type="application/json">
+                {
+                "top": 10,
+                "topUnit": "px",
+                "right": 10,
+                "rightUnit": "px",
+                "bottom": 10,
+                "bottomUnit": "px",
+                "left": 10,
+                "leftUnit": "px"
+                }
+            </script>
+            <script data-tchmi-target-attribute="data-tchmi-key-padding" type="application/json">
+                {
+                "top": 4,
+                "topUnit": "px",
+                "right": 4,
+                "rightUnit": "px",
+                "bottom": 4,
+                "bottomUnit": "px",
+                "left": 4,
+                "leftUnit": "px"
+                }
+            </script>
+            <script data-tchmi-target-attribute="data-tchmi-additional-key-backdrop-padding" type="application/json">
+                {
+                "top": 10,
+                "topUnit": "px",
+                "right": 10,
+                "rightUnit": "px",
+                "bottom": 10,
+                "bottomUnit": "px",
+                "left": 10,
+                "leftUnit": "px"
+                }
+            </script>
+
+
+            <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                {
+                "color": "rgba(255, 255, 255, 1)"
+                }
+            </script>
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+    <div id="MotorMonitoring_Window" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="95" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="5" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-creator-visibility="Collapsed" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-is-enabled="true" data-tchmi-zindex="0" data-tchmi-creator-locked="True" data-tchmi-visibility="Hidden">
+
+
+
+    <div id="MotorMonitoring_Torque" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-top="2" data-tchmi-top-unit="%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-width="96" data-tchmi-height="33" data-tchmi-creator-locked="True" data-tchmi-creator-visibility="Visible" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px">
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueLimit" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="35" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueLimit_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{0|3.1f}&quot;,%pp%stMcAxisOnline::stMotorMonitoring::rTorqueLimit%/pp%)%/f%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueLimit_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Torque Limit:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueLimit_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[%]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+        <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_Torque" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_Torque_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{0|3.1f}&quot;,%pp%stMcAxisOnline::stMotorMonitoring::rTorquePerc%/pp%)%/f%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_Torque_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Torque:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_Torque_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[%]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueFilter" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="35" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueFilter_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{0|3.2f}&quot;,%pp%stMcAxisOnline::stMotorMonitoring::rTorqueF%/pp%)%/f%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueFilter_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Torque Filter:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueFilter_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[Nm]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueMax%" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="70" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueMax%_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{0|3.1f}&quot;,%pp%stMcAxisOnline::stMotorMonitoring::rTorquePercMax%/pp%)%/f%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueMax%_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Torque Max:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueMax%_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[%]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueMax" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="70" data-tchmi-left-unit="%" data-tchmi-top="35" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueMax_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{0|3.1f}&quot;,%pp%stMcAxisOnline::stMotorMonitoring::rTorqueMax%/pp%)%/f%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueMax_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Torque Max:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Torque_TorqueMax_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[Nm]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+<div id="MotorMonitoring_Torque_ResetMax" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="70" data-tchmi-left-unit="%" data-tchmi-text="Reset Max" data-tchmi-top="70" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%MotorMonitoring_Torque_ResetMax::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True" data-tchmi-state-symbol="%pp%stMcAxisOnline::stMotorMonitoring::bReset%/pp%">
+
+</div>
+
+<div id="MotorMonitoring_Torque_TorqueError" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-left="35" data-tchmi-left-unit="%" data-tchmi-text="Torque Error" data-tchmi-top="35" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%MotorMonitoring_Torque_TorqueError::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-is-enabled="false" data-tchmi-creator-locked="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%pp%stMcAxisOnline::stMotorMonitoring::bError%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%pp%stMcAxisOnline::stMotorMonitoring::bError%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::BackgroundColor%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Color",
+                  "value": {
+                    "color": "rgba(200, 0, 0, 1)"
+                  }
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::IsEnabled%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Boolean",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::BackgroundColor%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Color",
+                  "value": null
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::IsEnabled%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Boolean",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+</div>
+
+</div>
+
+<div id="MotorMonitoring_Other" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-width="96" data-tchmi-height="22" data-tchmi-creator-locked="True" data-tchmi-creator-visibility="Visible" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px">
+
+        <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Other_I2T" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="45" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Other_I2T_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{0|3.2f}&quot;,%pp%stMcAxisOnline::stMotorMonitoring::rI2T%/pp%)%/f%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Other_I2T_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="I2T:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Other_I2T_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[%]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Other_I2TMax" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="45" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="55" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-locked="True">
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Other_I2TMax_Value" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="60" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%f%FormatString(&quot;{0|3.2f}&quot;,%pp%stMcAxisOnline::stMotorMonitoring::rI2TMax%/pp%)%/f%" data-tchmi-top="40" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-creator-locked="True" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Value::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%">
+
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                        {
+                        "color": "rgba(100, 100, 100, 1)"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+                        {
+                        "left": 1,
+                        "right": 1,
+                        "top": 1,
+                        "bottom": 1,
+                        "leftUnit": "px",
+                        "rightUnit": "px",
+                        "topUnit": "px",
+                        "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+                        {
+                        "left": "Solid",
+                        "right": "Solid",
+                        "top": "Solid",
+                        "bottom": "Solid"
+                        }
+                    </script>
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Other_I2TMax_Text" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="I2T Max:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Text::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="MotorMonitoring_Other_I2TMax_Unit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="[%]" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%NcAxis_Values_Override_Unit::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True">
+
+                </div>
+
+            </div>
+
+<div id="MotorMonitoring_Other_ForceLock" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="45" data-tchmi-height-unit="%" data-tchmi-left="35" data-tchmi-left-unit="%" data-tchmi-text="Force Lock" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%MotorMonitoring_Torque_ResetMax::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True" data-tchmi-state-symbol="%pp%stMcAxisOnline::stHoldingBrake::bForceLock%/pp%">
+
+</div>
+
+<div id="MotorMonitoring_Other_ForceUnlock" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="45" data-tchmi-height-unit="%" data-tchmi-left="35" data-tchmi-left-unit="%" data-tchmi-text="Force Unlock" data-tchmi-top="55" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="%f%%ctrl%MotorMonitoring_Torque_ResetMax::RenderedHeight%/ctrl%*%pp%fTextScaleFactor%/pp%%/f%" data-tchmi-creator-locked="True" data-tchmi-state-symbol="%pp%stMcAxisOnline::stHoldingBrake::bForceUnlock%/pp%">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
