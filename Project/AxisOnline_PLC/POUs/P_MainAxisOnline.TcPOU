@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="P_MainAxisOnline" Id="{919e77f0-5356-4502-93bf-f46f632414f1}" SpecialFunc="None">
+    <Declaration><![CDATA[//==================================================================================================
+//							Beckhoff Automation Poland
+//								P_MainAxisOnline
+//									05.01.2024
+//				AxisOnline handler, this program can be added somwhere to your project to run internally FB_McAxisOnline_xxxx inside.
+//	v1.5	|| TC v 3.1.4024.54		|| New release. Inheritance added.
+// 	v1.4 	|| TC v 3.1.4022.16	 	|| AX5xxx, AX8xxx FB added
+// 	v1.3 	|| TC v 3.1.4022.4	 	|| SS1 (eStop) deceleration ramp leads to axis power disable
+// 	v1.2 	|| TC v 3.1.4022.4	 	|| SS1, SS2 handler added
+// 	v1.1	|| TC v 3.1.4020.32		|| Buffering and gearing added
+// 	v1.0	|| TC v 3.1.4020.14		|| First release
+//==================================================================================================
+PROGRAM P_MainAxisOnline
+VAR
+	i										: BYTE;					// Iterator petli
+	arrMcAxisOnline_NC 						: ARRAY [1..1] OF FB_McAxisOnline_NC;		// Check ID of Axes
+	arrMcAxisOnline_AX5xxx					: ARRAY [2..3] OF FB_McAxisOnline_AX5xxx;	// Check ID of Axes
+	arrMcAxisOnline_AX8xxx					: ARRAY [4..5] OF FB_McAxisOnline_AX8xxx;	// Check ID of Axes
+	arrMcAxisOnline_EL72xx					: ARRAY [6..6] OF FB_McAxisOnline_EL72xx;	// Check ID of Axes
+	arrMcAxisOnline_ELM72xx					: ARRAY [7..8] OF FB_McAxisOnline_ELM72xx;	// Check ID of Axes
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//arrMcAxisOnline_NC[1](		Axis:= GVL.arrAxis[1] , AxisRef:= GVL.AxisRef[1]	);
+//arrMcAxisOnline_AX5xxx[2](	Axis:= GVL.arrAxis[2] , AxisRef:= GVL.AxisRef[2]	);
+//arrMcAxisOnline_AX5xxx[3](	Axis:= GVL.arrAxis[3] , AxisRef:= GVL.AxisRef[3]	);
+
+// Alternatywa - przykłady
+FOR i := 1 TO GVL.byNoOfAxes_NC 	DO
+	arrMcAxisOnline_NC[i](			Axis	:= GVL.aAxis[i], 
+									AxisRef	:= GVL.aAxisRef[i]	);
+END_FOR
+
+FOR i := 2 TO GVL.byNoOfAxes_AX5xxx + 1 DO
+	arrMcAxisOnline_AX5xxx[i](		Axis	:= GVL.aAxis[i], 
+									AxisRef	:= GVL.aAxisRef[i]	);
+END_FOR
+
+FOR i := 4 TO 5 DO
+	arrMcAxisOnline_AX8xxx[i](		Axis	:= GVL.aAxis[i], 
+									AxisRef	:= GVL.aAxisRef[i]	);
+END_FOR
+
+FOR i := 6 TO 6 DO
+	arrMcAxisOnline_EL72xx[i](		Axis	:= GVL.aAxis[i], 
+									AxisRef	:= GVL.aAxisRef[i]	);
+END_FOR
+
+FOR i := 7 TO 8 DO
+	arrMcAxisOnline_ELM72xx[i](		Axis	:= GVL.aAxis[i], 
+									AxisRef	:= GVL.aAxisRef[i]	);
+END_FOR]]></ST>
+    </Implementation>
+    <LineIds Name="P_MainAxisOnline">
+      <LineId Id="3" Count="27" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

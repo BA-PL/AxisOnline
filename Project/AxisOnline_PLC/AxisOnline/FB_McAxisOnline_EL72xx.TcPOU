@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="FB_McAxisOnline_EL72xx" Id="{16239ebc-c2d3-495a-8642-b9855b571ae1}" SpecialFunc="None">
+    <Declaration><![CDATA[//==================================================================================================
+//							Beckhoff Automation Poland
+//									06.02.2024
+//	Basic Axis Function Block object to control mostly used functionabilities, 
+//	Required libs: Tc2_EtherCAT, Tc2_MC2_Drive, Tc2_MC2
+// 	v2.0	|| TC v 3.1.4024.53		|| New release. Inheritance added.
+//  v1.1	|| TC v 3.1.4022.27		|| ACT_SetPositionIO - Changed FB type to FB_CoeEL72xxSetPositionOffset
+// 	v1.0 	|| TC v 3.1.4022.22	 	|| First release
+//==================================================================================================
+{attribute 'reflection'}
+FUNCTION_BLOCK FB_McAxisOnline_EL72xx EXTENDS FB_McAxisOnline_NC
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	fbMotorMonitoring					: FB_MotorMonitoringEL72xx;
+	fbHoldingBrakeCtrl					: FB_HoldingBrakeCtrlEL72xx;
+	tonGetDriveDiag						: TON;
+	fbReadChannelErrorCode				: FB_ReadChannelErrorCodeEL72xx;
+	fbSetPositionOffset					: FB_CoeEL72xxSetPositionOffset;	// Requires FW >= 19 Rev >= 30!		(check motor type if have multiturn enc to save in enc)		https://infosys.beckhoff.com/content/1033/tcplclib_tc2_mc2_drive/7604235915.html?id=9112637119101863462
+	fbDeletePositionOffset				: FB_CoEEL72xxDeletePositionOffset;
+	mcReadDriveAddress					: MC_ReadDriveAddress;
+	fbGetDriveRef						: FB_GetDriveRef;
+	
+	// Initialization
+	bDriveAddressReady					: BOOL;
+	bDriveRefReady						: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Device dependent initialization 
+M_Init_EL72xx();
+// Device independent commands, mostly NC 
+M_States();
+M_SWLimitSwitch();
+M_Stop();
+M_Power();
+M_Homing();
+M_Jog();
+M_Move();
+M_Reset();
+M_SetPosition();
+// Device dependent commands
+// Motor monitoring possible only with real axis
+IF NOT AxisRef.Status.OpMode.SimulationAxis THEN
+	M_MotorMonitoring();
+END_IF
+// Device dependent commands, possible only on real axis after complete initialization
+IF bInitialized AND NOT AxisRef.Status.OpMode.SimulationAxis THEN
+	M_SetPositionIO();
+	M_DeletePositionIO();
+	M_DriveDiag();
+	M_HoldingBrakeCtrl();
+END_IF
+
+// Device independent error collection
+M_ErrorCollection();]]></ST>
+    </Implementation>
+    <Method Name="M_DeletePositionIO" Id="{238704a3-2f77-45bf-8ea7-b5ec873494a3}">
+      <Declaration><![CDATA[METHOD M_DeletePositionIO : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Requires module FW >= 19 Rev >= 30!		
+// Requires library: Tc2_MC2_Drive ≥ V3.3.17.0
+// Check motor type if have multiturn enc to save in enc. (Motor with singleturn feedback and eMemory.Encoder = error without execute = 0x4BB4)
+// https://infosys.beckhoff.com/content/1033/tcplclib_tc2_mc2_drive/7604235915.html?id=9112637119101863462
+	
+fbDeletePositionOffset(
+	Axis		:= AxisRef, 
+	Execute		:= Axis.stDeletePositionOffset.bExecute, 
+	Feedback	:= Axis.stDeletePositionOffset.eFeedback, 
+	Memory		:= Axis.stDeletePositionOffset.eMemory, 
+	Busy		=> Axis.stDeletePositionOffset.bBusy, 
+	Error		=> Axis.stDeletePositionOffset.bError, 
+	ErrorID		=> Axis.stDeletePositionOffset.udiErrorID);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_DriveDiag" Id="{6a1dde08-bb88-4d2d-a5b4-664fa8170958}">
+      <Declaration><![CDATA[METHOD M_DriveDiag : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Auto update when drive error
+tonGetDriveDiag(	IN	:= Axis.stError.bDriveError AND NOT tonGetDriveDiag.Q, 
+					PT	:= T#5S, 
+					Q	=> , 
+					ET	=> );
+
+fbReadChannelErrorCode(	bExecute				:= Axis.stChannelErrorCode.bExecute OR tonGetDriveDiag.Q,
+						stDriveRef				:= Axis.stDriveRef,
+						bBusy					=> Axis.stChannelErrorCode.bBusy,
+						bError					=> Axis.stChannelErrorCode.bError,
+						uiAdsErrId				=> Axis.stChannelErrorCode.uiAdsErrId,
+						uiCANopenErrId			=> Axis.stChannelErrorCode.uiSecErrId,
+						uiChannelErrorCode		=> Axis.stChannelErrorCode.uiChannelErrorCode,
+						uiChannelErrorCodeHex	=> Axis.stChannelErrorCode.uiChannelErrorCodeHex);
+						
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_ErrorCollection" Id="{57b60148-42cb-4644-b558-22849b6a82ef}">
+      <Declaration><![CDATA[METHOD M_ErrorCollection : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Error flags
+Axis.stError.bDriveError					:= AxisRef.Status.DriveDeviceError;
+
+Axis.stError.bNcError						:= AxisRef.Status.Error;
+
+Axis.stError.bFBError						:= Axis.mcPower.bError OR Axis.mcReset.bError OR Axis.mcHome.bError OR Axis.mcJog.bError
+													OR Axis.mcHalt.bError OR Axis.mcStop.bError OR Axis.mcSS1.bError OR Axis.mcSS2.bError
+													OR Axis.mcMoveAbsolute.bError OR Axis.mcMoveRelative.bError OR Axis.mcMoveVelocity.bError OR Axis.mcMoveModulo.bError
+													OR Axis.mcMoveAbsolute2.bError OR Axis.mcMoveRelative2.bError OR Axis.mcMoveVelocity2.bError OR Axis.mcMoveModulo2.bError
+													OR Axis.stNcLimitSwitch.bError OR Axis.mcSetPosition.bError;
+									
+Axis.stError.bCommunicationError			:= Axis.stChannelErrorCode.bError OR Axis.stSetPositionOffset.bError OR Axis.stMotorMonitoring.bError OR Axis.stHoldingBrake.bError;
+
+Axis.stError.bError						:= Axis.stError.bDriveError OR Axis.stError.bNcError OR Axis.stError.bFBError OR Axis.stError.bCommunicationError;
+Axis.bError								:= Axis.stError.bError; // Forward one stage up
+
+// Error codes
+Axis.stError.uiDriveErrorID 				:= Axis.stChannelErrorCode.uiChannelErrorCode;
+Axis.stError.uiDriveErrorIDHex 			:= Axis.stChannelErrorCode.uiChannelErrorCodeHex;
+
+Axis.stError.udiNcErrorID 				:= AxisRef.Status.ErrorID;
+Axis.stError.udiNcErrorIDHex 				:= AxisRef.Status.ErrorID;
+	
+
+Axis.stError.udiFBErrorID 				:= 	Axis.mcPower.udiErrorID + 
+														Axis.mcReset.udiErrorID + 
+														Axis.mcHome.udiErrorID + 
+														Axis.mcJog.udiErrorID +
+														Axis.mcHalt.udiErrorID + 
+														Axis.mcStop.udiErrorID + 
+														Axis.mcSS1.udiErrorID + 
+														Axis.mcSS2.udiErrorID +
+														Axis.mcMoveAbsolute.udiErrorID + 
+														Axis.mcMoveRelative.udiErrorID + 
+														Axis.mcMoveVelocity.udiErrorID + 
+														Axis.mcMoveModulo.udiErrorID +
+														Axis.mcMoveAbsolute2.udiErrorID + 
+														Axis.mcMoveRelative2.udiErrorID + 
+														Axis.mcMoveVelocity2.udiErrorID + 
+														Axis.mcMoveModulo2.udiErrorID +
+														Axis.stNcLimitSwitch.udiErrorID + 
+														Axis.mcSetPosition.udiErrorID;
+
+Axis.stError.udiFBErrorIDHex 				:= Axis.stError.udiFBErrorID;
+
+Axis.stError.udiErrorID					:= Axis.stSetPositionOffset.udiErrorID;
+Axis.stError.uiAdsErrorID					:= Axis.stChannelErrorCode.uiAdsErrId + Axis.stMotorMonitoring.uiAdsErrId + Axis.stHoldingBrake.uiAdsErrId;
+Axis.stError.uiSecErrorID					:= Axis.stChannelErrorCode.uiSecErrId + Axis.stMotorMonitoring.uiSecErrId + Axis.stHoldingBrake.uiSecErrId;
+
+Axis.stError.sNcError						:= F_AxErrMsg(Axis.stError.udiNcErrorID);
+Axis.stError.sDriveError					:= F_EL72ErrMsg(Axis.stError.uiDriveErrorID);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_HoldingBrakeCtrl" Id="{61605901-f980-44ec-8803-4260afacb70a}">
+      <Declaration><![CDATA[METHOD M_HoldingBrakeCtrl : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[fbHoldingBrakeCtrl(bForceUnlock			:= Axis.stHoldingBrake.bForceUnlock,
+					stDriveRef			:= Axis.stDriveRef,
+					bBusy				=> Axis.stHoldingBrake.bBusy,
+					bError				=> Axis.stHoldingBrake.bError,
+					uiAdsErrId			=> Axis.stHoldingBrake.uiAdsErrId,
+					uiCANopenErrId		=> Axis.stHoldingBrake.uiSecErrId);
+
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Init_EL72xx" Id="{800d90c3-1df9-45e4-9a79-81580edfa032}">
+      <Declaration><![CDATA[METHOD M_Init_EL72xx : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// bInitialized flag is set just once. 
+// bReInitialized ise set each time we do online change or request reinit operation
+// bDriveAddressReady, bReadParameterSetReady, bDriveRefReady - set just once after successed read
+
+// Online change detection
+bOnlineChangeDetected					:= udiOnlineChangeCntOld <> TwinCAT_SystemInfoVarList._AppInfo.OnlineChangeCnt;
+udiOnlineChangeCntOld 					:= TwinCAT_SystemInfoVarList._AppInfo.OnlineChangeCnt;
+// Reset init
+IF bReInit OR bOnlineChangeDetected THEN
+	iInitStep							:= 0;
+END_IF
+
+//Initialization process
+CASE iInitStep OF
+	0:	// Read Drive Address
+		
+		Axis.mcReadDriveAddress.bExecute	:=	 TRUE;
+		iInitStep						:= iInitStep + 10;
+		
+	10: // Wait for data
+	
+		IF NOT Axis.mcReadDriveAddress.bBusy THEN
+			Axis.mcReadDriveAddress.bExecute	:=	 FALSE;
+			IF Axis.mcReadDriveAddress.bDone THEN
+				iInitStep 				:= iInitStep + 10;
+				bDriveAddressReady 		:= TRUE;
+			ELSE
+				iInitStep 				:= 1000;		// Error step
+			END_IF
+		END_IF
+		
+	20:	// Read Parameter Set
+		
+		Axis.mcReadParameterSet.bExecute		:=	 TRUE;
+		iInitStep						:= iInitStep + 10;
+		
+	30: // Wait for data
+	
+		IF NOT Axis.mcReadParameterSet.bBusy THEN
+			Axis.mcReadParameterSet.bExecute	:=	 FALSE;
+			IF Axis.mcReadParameterSet.bDone THEN
+				iInitStep 				:= iInitStep + 10;
+				bReadParameterSetReady 	:= TRUE;
+			ELSE
+				iInitStep 				:= 1000;		// Error step
+			END_IF
+		END_IF	
+	
+	40:	// Get Drive Ref
+		
+		Axis.stGetDriveRef.bExecute		:=	 TRUE;
+		iInitStep						:= iInitStep + 10;
+		
+	50: // Wait for data
+	
+		IF NOT Axis.stGetDriveRef.bBusy THEN
+			Axis.stGetDriveRef.bExecute	:=	 FALSE;
+			IF NOT Axis.stGetDriveRef.bError THEN
+				iInitStep 				:= iInitStep + 10;
+				bDriveRefReady 			:= TRUE;
+			ELSE
+				iInitStep 				:= 1000;		// Error step
+			END_IF
+		END_IF
+	
+	60: // Success - initialized flag, clear error
+		bReInitialized					:= bInitialized;	// TRUE only when it's not first initialization e.g. online change
+		bInitialized 					:= TRUE;
+		bReInitializationError			:= FALSE;			// TRUE only when it's not first initialization e.g. online change
+		bInitializationError			:= FALSE;
+		iInitStep 						:= iInitStep + 10;
+		
+	70: // Idle
+	
+		;
+		
+	1000: // Error step
+		wInitializationErrorCounter 	:= wInitializationErrorCounter + 1;
+		IF wInitializationErrorCounter < 100 THEN
+			iInitStep					:= iInitStep + 5;			// Go to delay
+		ELSE
+			bReInitializationError		:= bInitializationError;	// TRUE only when it's not first initialization e.g. online change
+			bInitializationError		:= TRUE;
+			bReInitialized				:= FALSE;
+			iInitStep 					:= iInitStep + 10;
+		END_IF
+
+	1005: // Delay step
+		tonDelay(IN:= TRUE, PT:= T#1S);
+		IF tonDelay.Q THEN
+			tonDelay(IN:= FALSE, PT:= T#1S);
+			iInitStep					:= 0;
+		END_IF
+		
+	1010: // Idle after error
+		;
+	
+END_CASE
+
+mcReadDriveAddress(	Axis				:= AxisRef,
+					Execute				:= Axis.mcReadDriveAddress.bExecute,
+					Done				=> Axis.mcReadDriveAddress.bDone,
+					Busy				=> Axis.mcReadDriveAddress.bBusy,
+					Error				=> Axis.mcReadDriveAddress.bError,
+					ErrorID				=> Axis.mcReadDriveAddress.udiErrorID,
+					DriveAddress		=> Axis.stDriveAddress);
+				
+mcReadParameterSet(	Parameter			:= Axis.stAxisParameter,
+					Axis				:= AxisRef,
+					Execute				:= Axis.mcReadParameterSet.bExecute,
+					Done				=> Axis.mcReadParameterSet.bDone,
+					Busy				=> Axis.mcReadParameterSet.bBusy,
+					Error				=> Axis.mcReadParameterSet.bError,
+					ErrorID				=> Axis.mcReadParameterSet.udiErrorID);
+					
+fbGetDriveRef(		bExecute			:= Axis.stGetDriveRef.bExecute,
+					bBusy				=> Axis.stGetDriveRef.bBusy,
+					bError				=> Axis.stGetDriveRef.bError,
+					udiErrorID			=> Axis.stGetDriveRef.udiErrorID,
+					stDriveRef			=> Axis.stDriveRef,
+					Axis				:= AxisRef);
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_MotorMonitoring" Id="{e2192254-e996-46ab-a862-8d4b79efad36}">
+      <Declaration><![CDATA[METHOD M_MotorMonitoring : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[fbMotorMonitoring(	bReset				:= Axis.stMotorMonitoring.bReset,
+					rTorqueLimit		:= Axis.stMotorMonitoring.rTorqueLimit,
+					stDriveRef			:= Axis.stDriveRef,
+					bError				=> Axis.stMotorMonitoring.bError,
+					uiAdsErrId			=> Axis.stMotorMonitoring.uiAdsErrId,
+					uiCANopenErrId		=> Axis.stMotorMonitoring.uiSecErrId,
+					bInitialized		=> Axis.stMotorMonitoring.bInitialized,
+					bWarning			=> Axis.stMotorMonitoring.bWarning,
+					rWarningCurrent		=> Axis.stMotorMonitoring.rWarningCurrent,
+					rTorquePerc			=> Axis.stMotorMonitoring.rTorquePerc,
+					rTorquePercMax		=> Axis.stMotorMonitoring.rTorquePercMax,
+					rTorque				=> Axis.stMotorMonitoring.rTorque,
+					rTorqueF			=> Axis.stMotorMonitoring.rTorqueF,
+					rTorqueMax			=> Axis.stMotorMonitoring.rTorqueMax,
+					rCurrent			=> Axis.stMotorMonitoring.rCurrent,
+					rCurrentF			=> Axis.stMotorMonitoring.rCurrentF,
+					rCurrentMax			=> Axis.stMotorMonitoring.rCurrentMax,
+					rI2T				=> Axis.stMotorMonitoring.rI2T,
+					rI2TMax				=> Axis.stMotorMonitoring.rI2TMax,
+					Axis				:= AxisRef);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_SetPositionIO" Id="{3db8cde7-c6b3-4540-a90b-19fac9830810}">
+      <Declaration><![CDATA[METHOD M_SetPositionIO : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Requires module FW >= 19 Rev >= 30!		
+// Requires library: Tc2_MC2_Drive ≥ V3.3.17.0
+// Check motor type if have multiturn enc to save in enc. (Motor with singleturn feedback and eMemory.Encoder = error without execute = 0x4BB4)
+// https://infosys.beckhoff.com/content/1033/tcplclib_tc2_mc2_drive/7604235915.html?id=9112637119101863462
+
+fbSetPositionOffset(
+	Axis		:= AxisRef, 
+	Execute		:= Axis.stSetPositionOffset.bExecute,
+	Position	:= Axis.stSetPositionOffset.lrPosition,
+	Relative	:= Axis.stSetPositionOffset.bRelative, 
+	Feedback	:= Axis.stSetPositionOffset.eFeedback, 
+	Memory		:= Axis.stSetPositionOffset.eMemory,   
+	Busy		=> Axis.stSetPositionOffset.bBusy,     
+	Error		=> Axis.stSetPositionOffset.bError,    
+	ErrorID		=> Axis.stSetPositionOffset.udiErrorID	);
+	
+]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_McAxisOnline_EL72xx">
+      <LineId Id="3" Count="25" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_EL72xx.M_DeletePositionIO">
+      <LineId Id="3" Count="11" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_EL72xx.M_DriveDiag">
+      <LineId Id="3" Count="14" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_EL72xx.M_ErrorCollection">
+      <LineId Id="3" Count="49" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_EL72xx.M_HoldingBrakeCtrl">
+      <LineId Id="3" Count="6" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_EL72xx.M_Init_EL72xx">
+      <LineId Id="3" Count="120" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_EL72xx.M_MotorMonitoring">
+      <LineId Id="3" Count="18" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_EL72xx.M_SetPositionIO">
+      <LineId Id="3" Count="15" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

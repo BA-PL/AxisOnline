@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="FB_McAxisOnline_AX5xxx" Id="{56f55561-11ef-45f3-bbc4-4fdbc9844393}" SpecialFunc="None">
+    <Declaration><![CDATA[//==================================================================================================
+//							Beckhoff Automation Poland
+//									06.02.2024
+//	Basic Axis Function Block object to control mostly used functionabilities, 
+//	Required libs: Tc2_EtherCAT, Tc2_Drive, Tc2_MC2_Drive, Tc2_MC2, Tc2_Utilities
+// 	v2.0	|| TC v 3.1.4024.53		|| New release. Inheritance added.
+//  v1.3	|| TC v 3.1.4024.22		|| Added structure ST_MotionPowerData. Reading parameters inside it.
+//  v1.2	|| TC v 3.1.4022.27		|| Added error description (string type)
+// 	v1.1 	|| TC v 3.1.4022.20	 	|| ACT_MotorMonitoring - only for real axis
+// 	v1.0 	|| TC v 3.1.4022.16	 	|| First release
+//==================================================================================================
+{attribute 'reflection'}
+FUNCTION_BLOCK FB_McAxisOnline_AX5xxx EXTENDS FB_McAxisOnline_NC
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	fbSetPositionOffset					: FB_SetPositionOffsetAX5000;
+	fbMotorMonitoring					: FB_MotorMonitoringAX5000;
+	fbHoldingBrakeCtrl					: FB_HoldingBrakeCtrlAX5000;
+	tonGetDriveDiag						: TON;
+	fbReadChannelErrorCode				: FB_AxisDiag;
+	mcReadDriveAddress					: MC_ReadDriveAddress;
+	fbGetDriveRef						: FB_GetDriveRef;
+	
+	bDriveAddressReady					: BOOL;
+	bDriveRefReady						: BOOL;
+	
+	// Axis diag struct
+	stAX5000Diag						: ST_AX5000Diag;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Device dependent initialization 
+M_Init_AX5xxx();
+// Device independent commands, mostly NC 
+M_States();
+M_SWLimitSwitch();
+M_Stop();
+M_Power();
+M_Homing();
+M_Jog();
+M_Move();
+M_ResetAndDiag();
+M_SetPosition();
+// Device dependent commands
+// Motor monitoring possible only with real axis
+IF NOT AxisRef.Status.OpMode.SimulationAxis THEN
+	M_MotorMonitoring();
+END_IF
+// Device dependent commands, possible only on real axis after complete initialization
+IF bInitialized AND NOT AxisRef.Status.OpMode.SimulationAxis THEN
+	M_SetPositionIO();
+	M_HoldingBrakeCtrl();
+END_IF
+
+// Device independent error collection
+M_ErrorCollection();
+
+]]></ST>
+    </Implementation>
+    <Method Name="M_HoldingBrakeCtrl" Id="{2726d726-3460-44b2-b7a8-c611d98cdee8}">
+      <Declaration><![CDATA[METHOD M_HoldingBrakeCtrl : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[fbHoldingBrakeCtrl(
+					bForceLock			:= Axis.stHoldingBrake.bForceLock,
+					bForceUnlock		:= Axis.stHoldingBrake.bForceUnlock,
+					bBusy				=> Axis.stHoldingBrake.bBusy,
+					bError				=> Axis.stHoldingBrake.bError,
+					iAdsErrId			=> Axis.stHoldingBrake.uiAdsErrId,
+					iSecErrId			=> Axis.stHoldingBrake.uiSecErrId , 
+					Axis				:= AxisRef );
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Init_AX5xxx" Id="{cae5c369-2455-4966-87b7-d800437fa35e}">
+      <Declaration><![CDATA[METHOD M_Init_AX5xxx : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// bInitialized flag is set just once. 
+// bReInitialized ise set each time we do online change or request reinit operation
+// bDriveAddressReady, bReadParameterSetReady, bDriveRefReady - set just once after successed read
+
+// Online change detection
+bOnlineChangeDetected					:= udiOnlineChangeCntOld <> TwinCAT_SystemInfoVarList._AppInfo.OnlineChangeCnt;
+udiOnlineChangeCntOld 					:= TwinCAT_SystemInfoVarList._AppInfo.OnlineChangeCnt;
+
+// Reset init
+IF bReInit OR bOnlineChangeDetected THEN
+	iInitStep							:= 0;
+END_IF
+
+//Initialization process
+CASE iInitStep OF
+	0:	// Read Drive Address
+		
+		Axis.mcReadDriveAddress.bExecute	:=	 TRUE;
+		iInitStep						:= iInitStep + 10;
+		
+	10: // Wait for data
+	
+		IF NOT Axis.mcReadDriveAddress.bBusy THEN
+			Axis.mcReadDriveAddress.bExecute	:=	 FALSE;
+			IF Axis.mcReadDriveAddress.bDone THEN
+				iInitStep 				:= iInitStep + 10;
+				bDriveAddressReady 		:= TRUE;
+			ELSE
+				iInitStep 				:= 1000;		// Error step
+			END_IF
+		END_IF
+		
+	20:	// Read Parameter Set
+		
+		Axis.mcReadParameterSet.bExecute		:=	 TRUE;
+		iInitStep						:= iInitStep + 10;
+		
+	30: // Wait for data
+	
+		IF NOT Axis.mcReadParameterSet.bBusy THEN
+			Axis.mcReadParameterSet.bExecute	:=	 FALSE;
+			IF Axis.mcReadParameterSet.bDone THEN
+				iInitStep 				:= iInitStep + 10;
+				bReadParameterSetReady 	:= TRUE;
+			ELSE
+				iInitStep 				:= 1000;		// Error step
+			END_IF
+		END_IF	
+	
+	40:	// Get Drive Ref
+		
+		Axis.stGetDriveRef.bExecute		:=	 TRUE;
+		iInitStep						:= iInitStep + 10;
+		
+	50: // Wait for data
+	
+		IF NOT Axis.stGetDriveRef.bBusy THEN
+			Axis.stGetDriveRef.bExecute	:=	 FALSE;
+			IF NOT Axis.stGetDriveRef.bError THEN
+				iInitStep 				:= iInitStep + 10;
+				bDriveRefReady 			:= TRUE;
+			ELSE
+				iInitStep 				:= 1000;		// Error step
+			END_IF
+		END_IF
+	
+	60: // Success - initialized flag, clear error
+		bReInitialized					:= bInitialized;	// TRUE only when it's not first initialization e.g. online change
+		bInitialized 					:= TRUE;
+		bReInitializationError			:= FALSE;			// TRUE only when it's not first initialization e.g. online change
+		bInitializationError			:= FALSE;
+		iInitStep 						:= iInitStep + 10;
+		
+	70: // Idle
+		;
+		
+	1000: // Error step
+		wInitializationErrorCounter 	:= wInitializationErrorCounter + 1;
+		IF wInitializationErrorCounter < 100 THEN
+			iInitStep					:= iInitStep + 5;			// Go to delay
+		ELSE
+			bReInitializationError		:= bInitializationError;	// TRUE only when it's not first initialization e.g. online change
+			bInitializationError		:= TRUE;
+			bReInitialized				:= FALSE;
+			iInitStep 					:= iInitStep + 10;
+		END_IF
+
+	1005: // Delay step
+		tonDelay(IN:= TRUE, PT:= T#1S);
+		IF tonDelay.Q THEN
+			tonDelay(IN:= FALSE, PT:= T#1S);
+			iInitStep					:= 0;
+		END_IF
+		
+	1010: // Idle after error
+		;
+	
+END_CASE
+
+mcReadDriveAddress(	Axis				:= AxisRef,
+					Execute				:= Axis.mcReadDriveAddress.bExecute,
+					Done				=> Axis.mcReadDriveAddress.bDone,
+					Busy				=> Axis.mcReadDriveAddress.bBusy,
+					Error				=> Axis.mcReadDriveAddress.bError,
+					ErrorID				=> Axis.mcReadDriveAddress.udiErrorID,
+					DriveAddress		=> Axis.stDriveAddress);
+				
+mcReadParameterSet(	Parameter			:= Axis.stAxisParameter,
+					Axis				:= AxisRef,
+					Execute				:= Axis.mcReadParameterSet.bExecute,
+					Done				=> Axis.mcReadParameterSet.bDone,
+					Busy				=> Axis.mcReadParameterSet.bBusy,
+					Error				=> Axis.mcReadParameterSet.bError,
+					ErrorID				=> Axis.mcReadParameterSet.udiErrorID);
+					
+fbGetDriveRef(		bExecute			:= Axis.stGetDriveRef.bExecute,
+					bBusy				=> Axis.stGetDriveRef.bBusy,
+					bError				=> Axis.stGetDriveRef.bError,
+					udiErrorID			=> Axis.stGetDriveRef.udiErrorID,
+					stDriveRef			=> Axis.stDriveRef,
+					Axis				:= AxisRef);
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_MotorMonitoring" Id="{8951627e-70d5-4458-96dd-d143a76b3ad1}">
+      <Declaration><![CDATA[METHOD M_MotorMonitoring : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[fbMotorMonitoring(
+					bReset				:= Axis.stMotorMonitoring.bReset, 
+					rTorqueLimit		:= Axis.stMotorMonitoring.rTorqueLimit , 
+					bError				=> Axis.stMotorMonitoring.bError , 
+					uiAdsErrId			=> Axis.stMotorMonitoring.uiAdsErrId , 
+					uiSercosErrId		=> Axis.stMotorMonitoring.uiSecErrId, 
+					bInitialized		=> Axis.stMotorMonitoring.bInitialized , 
+					bWarning			=> Axis.stMotorMonitoring.bWarning , 
+					rWarningCurrent		=> Axis.stMotorMonitoring.rWarningCurrent , 
+					rTorquePerc			=> Axis.stMotorMonitoring.rTorquePerc,
+					rTorquePercMax		=> Axis.stMotorMonitoring.rTorquePercMax,
+					rTorque				=> Axis.stMotorMonitoring.rTorque , 
+					rTorqueF			=> Axis.stMotorMonitoring.rTorqueF , 
+					rTorqueMax			=> Axis.stMotorMonitoring.rTorqueMax , 
+					rCurrent			=> Axis.stMotorMonitoring.rCurrent , 
+					rCurrentF			=> Axis.stMotorMonitoring.rCurrentF , 
+					rCurrentMax			=> Axis.stMotorMonitoring.rCurrentMax , 
+					rI2T				=> Axis.stMotorMonitoring.rI2T , 
+					rI2TMax				=> Axis.stMotorMonitoring.rI2TMax , 
+					stPowerData			=> Axis.stMotorMonitoring.stPowerData ,
+					Axis				:= AxisRef );]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_ResetAndDiag" Id="{c9d8af38-96aa-47a5-8ca6-db5deb01ecd8}">
+      <Declaration><![CDATA[METHOD M_ResetAndDiag : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[tonGetDriveDiag(IN:= Axis.stError.bDriveError AND NOT tonGetDriveDiag.Q, PT:= T#5S, Q=> , ET=> );
+
+IF AxisRef.Status.OpMode.SimulationAxis THEN
+	mcReset(
+		Axis						:= AxisRef,
+		Execute						:= Axis.mcReset.bExecute,
+		Done						=> Axis.mcReset.bDone,
+		Busy						=> Axis.mcReset.bBusy,
+		Error						=> Axis.mcReset.bError,
+		ErrorID						=> Axis.mcReset.udiErrorID);	
+ELSE
+	fbReadChannelErrorCode(
+		Reset:=					Axis.mcReset.bExecute,
+		GetDiag				:=	(Axis.stChannelErrorCode.bExecute OR tonGetDriveDiag.Q),
+		Axis				:=	AxisRef , 
+		stAX5000Diag		:=	stAX5000Diag , 
+		Error				=> 	Axis.mcReset.bError , 
+		AdsErrId			=>	Axis.mcReset.udiErrorID , 
+		SercosErrId			=>	Axis.stChannelErrorCode.uiAdsErrId, //???
+		ResetAct			=> , 
+		DiagAct				=> , 
+		Busy				=> 	Axis.mcReset.bBusy );
+	
+	Axis.stChannelErrorCode.bError 				:= stAX5000Diag.bC1DError;
+	Axis.stChannelErrorCode.uiChannelErrorCode 	:= UDINT_TO_UINT (stAX5000Diag.iDiagNumber);
+	Axis.stChannelErrorCode.uiChannelErrorCodeHex := UDINT_TO_UINT (stAX5000Diag.iDiagNumber);
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_SetPositionIO" Id="{145ee6e8-a34d-4892-85a9-baa71602fd02}">
+      <Declaration><![CDATA[METHOD M_SetPositionIO : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[fbSetPositionOffset(
+	bExecute			:= Axis.stSetPositionOffset.bExecute , 
+	lrPosition			:= Axis.stSetPositionOffset.lrPosition , 
+	bRelative			:= Axis.stSetPositionOffset.bRelative , 
+	eFeedback			:= Axis.stSetPositionOffset.eFeedback , 
+	eMemory				:= Axis.stSetPositionOffset.eMemory , 
+	bBusy				=> Axis.stSetPositionOffset.bBusy , 
+	bError				=> Axis.stSetPositionOffset.bError, 
+	udiErrorID			=> Axis.stSetPositionOffset.udiErrorID, 
+	uiSoEErrorID		=> Axis.stSetPositionOffset.uiSecErrId,
+	Axis				:= AxisRef );]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_States" Id="{4c022b10-154b-438f-9346-fa9fff92f83f}">
+      <Declaration><![CDATA[METHOD M_States : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Read States and forward main states
+AxisRef.ReadStatus();
+Axis.stStatus.stAxisStatus		:= AxisRef.Status;
+Axis.stStatus.dwAxisId			:= AxisRef.NcToPlc.AxisId;
+Axis.stStatus.bNcError			:= AxisRef.Status.Error;
+Axis.stStatus.udiNcErrorCode	:= AxisRef.Status.ErrorID;
+Axis.stStatus.udiNcErrorCodeHex	:= AxisRef.Status.ErrorID;
+
+Axis.stStatus.sAxisName			:= Axis.stAxisParameter.sAxisName;
+Axis.stStatus.lrActPos			:= AxisRef.NcToPlc.ActPos;
+Axis.stStatus.lrModuloActPos	:= AxisRef.NcToPlc.ModuloActPos;
+Axis.stStatus.lrActVelo			:= AxisRef.NcToPlc.ActVelo;
+Axis.stStatus.lrActAcc			:= AxisRef.NcToPlc.ActAcc;
+Axis.stStatus.lrActTorque		:= AxisRef.NcToPlc.ActTorque;
+Axis.stStatus.lrPosDiff			:= AxisRef.NcToPlc.PosDiff;
+Axis.stStatus.lrPosDiff_Max		:= MAX(AxisRef.NcToPlc.PosDiff, Axis.stStatus.lrPosDiff_Max);
+Axis.stStatus.lrPosDiff_Min		:= MIN(AxisRef.NcToPlc.PosDiff, Axis.stStatus.lrPosDiff_Min);
+IF Axis.mcReset.bExecute THEN
+	Axis.stStatus.lrPosDiff_Max	:= 0;
+	Axis.stStatus.lrPosDiff_Min	:= 0;
+END_IF
+Axis.stStatus.lrSetPos			:= AxisRef.NcToPlc.SetPos;
+Axis.stStatus.lrSetVelo			:= AxisRef.NcToPlc.SetVelo;
+Axis.stStatus.lrSetAcc			:= AxisRef.NcToPlc.SetAcc;
+Axis.stStatus.lrSetTorque		:= AxisRef.NcToPlc.SetTorque;
+Axis.stStatus.lrPosDiff			:= AxisRef.NcToPlc.PosDiff;
+Axis.stStatus.bAxisReady		:= AxisRef.Status.Operational;
+Axis.stStatus.bHomed			:= AxisRef.Status.Homed;
+Axis.stStatus.bCoupled			:= AxisRef.Status.Coupled;
+
+// zezwolenie na zjazd z krancowki hw
+AxisRef.PlcToNc.ControlDWord.8				:= Axis.stStatus.bAcceptBlockedDrive;
+
+fbReadCycle(IN := NOT fbReadCycle.Q, PT := T#500MS);
+fbReadTotalOutput(
+	NETID:= , 
+	PORT:= 501 , 
+	IDXGRP:= 16#7100 + AxisRef.NcToPlc.AxisId , 
+	IDXOFFS:= 16#3 , 
+	LEN:= SIZEOF(lrTotalOutput) , 
+	DESTADDR:= ADR(lrTotalOutput), 
+	READ:=fbReadCycle.Q );
+
+Axis.stStatus.lrTotalOutputInPercent := lrTotalOutput * 100.0;
+
+fbReadControllerOutput(
+	NETID:= , 
+	PORT:= 501 , 
+	IDXGRP:= 16#6100 + AxisRef.NcToPlc.AxisId , 
+	IDXOFFS:= 16#3 , 
+	LEN:= SIZEOF(lrControllerOutput) , 
+	DESTADDR:= ADR(lrControllerOutput), 
+	READ:=fbReadCycle.Q );
+
+Axis.stStatus.lrControllerOutputInPercent := lrControllerOutput * 100.0;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_McAxisOnline_AX5xxx">
+      <LineId Id="3" Count="25" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_AX5xxx.M_HoldingBrakeCtrl">
+      <LineId Id="3" Count="7" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_AX5xxx.M_Init_AX5xxx">
+      <LineId Id="3" Count="120" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_AX5xxx.M_MotorMonitoring">
+      <LineId Id="3" Count="19" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_AX5xxx.M_ResetAndDiag">
+      <LineId Id="3" Count="26" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_AX5xxx.M_SetPositionIO">
+      <LineId Id="3" Count="9" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_AX5xxx.M_States">
+      <LineId Id="3" Count="53" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

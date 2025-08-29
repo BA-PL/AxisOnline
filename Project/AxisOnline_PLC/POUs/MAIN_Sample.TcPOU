@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN_Sample" Id="{ccbb17fa-870f-43ad-8c7e-ac1ef9392ecd}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN_Sample
+VAR
+	bEnable						: BOOL;
+	bStart						: BOOL;
+	bReset						: BOOL;
+	bRun				AT%Q*	: BOOL	:= 1;
+	bErrAck				AT%Q*	: BOOL;
+	SafetyPermission	AT%I*	: BOOL;
+	bSetZero					: BOOL;
+	bSaveZeroToEncoder			: BOOL;
+	lrOffsetPos					: LREAL	:= 5;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[P_MainAxisOnline();
+
+
+
+// MC_POWER
+GVL.aAxis[1].mcPower.bEnable 				:= bEnable;	// NC
+GVL.aAxis[1].mcPower.bEnable_Negative 		:= bEnable;
+GVL.aAxis[1].mcPower.bEnable_Positive 		:= bEnable;
+GVL.aAxis[1].mcPower.lrOverride 			:= 100;
+GVL.aAxis[1].stStatus.stAxisStatus.Operational;
+
+GVL.aAxis[3].mcPower.bEnable 				:= bEnable;	// AX5xxx
+GVL.aAxis[3].mcPower.bEnable_Negative 		:= bEnable;
+GVL.aAxis[3].mcPower.bEnable_Positive 		:= bEnable;
+GVL.aAxis[3].mcPower.lrOverride 			:= 100;
+GVL.aAxis[3].stStatus.stAxisStatus.Operational;
+
+GVL.aAxis[4].mcPower.bEnable 				:= bEnable;	// AX8xxx
+GVL.aAxis[4].mcPower.bEnable_Negative 		:= bEnable;
+GVL.aAxis[4].mcPower.bEnable_Positive 		:= bEnable;
+GVL.aAxis[4].mcPower.lrOverride 			:= 100;
+GVL.aAxis[4].stStatus.stAxisStatus.Operational;
+
+GVL.aAxis[6].mcPower.bEnable 				:= bEnable;	// EL72xx
+GVL.aAxis[6].mcPower.bEnable_Negative 		:= bEnable;
+GVL.aAxis[6].mcPower.bEnable_Positive 		:= bEnable;
+GVL.aAxis[6].mcPower.lrOverride 			:= 100;
+GVL.aAxis[6].stStatus.stAxisStatus.Operational;
+
+GVL.aAxis[7].mcPower.bEnable 				:= bEnable;	// ELM72xx
+GVL.aAxis[7].mcPower.bEnable_Negative 		:= bEnable;
+GVL.aAxis[7].mcPower.bEnable_Positive 		:= bEnable;
+GVL.aAxis[7].mcPower.lrOverride 			:= 100;
+GVL.aAxis[7].stStatus.stAxisStatus.Operational;
+
+GVL.aAxis[8].mcPower.bEnable 				:= bEnable;	// ELM72xx
+GVL.aAxis[8].mcPower.bEnable_Negative 		:= bEnable;
+GVL.aAxis[8].mcPower.bEnable_Positive 		:= bEnable;
+GVL.aAxis[8].mcPower.lrOverride 			:= 100;
+GVL.aAxis[8].stStatus.stAxisStatus.Operational;
+
+
+//// Move etc
+//GVL.arrStAxisOnline[1].mcMoveVelocity.bExecute 		:= bStart;
+//GVL.arrStAxisOnline[1].mcMoveVelocity.lrVelocity 		:= 100;
+
+GVL.aAxis[3].mcMoveRelative.bExecute		:= bStart;
+GVL.aAxis[3].mcMoveRelative.lrDistance		:= 2000;
+GVL.aAxis[3].mcMoveRelative.lrVelocity		:= 1000;
+
+GVL.aAxis[4].mcMoveRelative.bExecute		:= bStart;
+GVL.aAxis[4].mcMoveRelative.lrDistance		:= 2000;
+GVL.aAxis[4].mcMoveRelative.lrVelocity		:= 1000;
+
+GVL.aAxis[6].mcMoveRelative.bExecute		:= bStart;
+GVL.aAxis[6].mcMoveRelative.lrDistance		:= 2000;
+GVL.aAxis[6].mcMoveRelative.lrVelocity		:= 1000;
+
+GVL.aAxis[6].mcReset.bExecute				:= bReset;
+
+GVL.aAxis[6].mcSetPosition.bExecute			:= bSetZero;
+
+//GVL.aAxis[6].stSetPositionOffset.bExecute	:= bSaveZeroToEncoder;
+//GVL.aAxis[6].stSetPositionOffset.eFeedback	:= Tc2_MC2_Drive.E_PositionOffsetFeedback.ePositionOffsetFeedback1;
+//GVL.aAxis[6].stSetPositionOffset.eMemory	:= Tc2_MC2_Drive.E_PositionOffsetMemory.ePositionOffsetMemory_Drive;
+//GVL.aAxis[6].stSetPositionOffset.lrPosition	:= lrOffsetPos;
+
+//GVL.arrStAxisOnline[3].mcHome.bExecute				:= bStart;
+//GVL.arrStAxisOnline[3].mcHome.bCalibrationCam			:= bCam;
+
+//// Halt
+//GVL.arrStAxisOnline[1].mcHalt.bExecute				:= bHalt;
+//GVL.arrStAxisOnline[2].mcHalt.bExecute				:= bHalt;
+//GVL.arrStAxisOnline[3].mcHalt.bExecute				:= bHalt;
+
+//// Reset
+//GVL.arrStAxisOnline[1].mcReset.bExecute				:= bReset AND GVL.arrStAxisOnline[1].bError;
+//GVL.arrStAxisOnline[2].mcReset.bExecute				:= bReset AND GVL.arrStAxisOnline[2].bError;
+//GVL.arrStAxisOnline[3].mcReset.bExecute				:= bReset AND GVL.arrStAxisOnline[3].bError;
+
+
+//// any Error?
+//GVL.arrStAxisOnline[1].bError;
+
+
+// GVL.stMcAxisOnline[1].mcMoveRelative.bExecute := TRUE;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

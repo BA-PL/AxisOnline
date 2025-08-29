@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <GVL Name="GVL" Id="{dbd024e1-e0e4-40c9-9dbd-c378d38eb65e}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL CONSTANT
+	byNoOfAxes_NC 						: BYTE	:= 1; 			// Number of virtual axes
+	byNoOfAxes_AX5xxx 					: BYTE	:= 2; 			// Number of axes supported with AX5xxx
+	byNoOfAxes_AX8xxx 					: BYTE	:= 2; 			// Number of axes supported with AX8xxx
+	byNoOfAxes_EL72xx 					: BYTE	:= 1; 			// Number of axes supported with EL72xx
+	byNoOfAxes_ELM72xx 					: BYTE	:= 2; 			// Number of axes supported with ELM72xx
+	byNoOfAxes 							: BYTE	:= (byNoOfAxes_NC + byNoOfAxes_AX5xxx + byNoOfAxes_AX8xxx + byNoOfAxes_EL72xx + byNoOfAxes_ELM72xx);	// Liczba wszystkich osi
+END_VAR
+VAR_GLOBAL
+	aAxisRef							: ARRAY [1..byNoOfAxes] OF AXIS_REF;
+	aAxis								: ARRAY [1..byNoOfAxes] OF ST_McAxisOnline;
+END_VAR
+]]></Declaration>
+  </GVL>
+</TcPlcObject>

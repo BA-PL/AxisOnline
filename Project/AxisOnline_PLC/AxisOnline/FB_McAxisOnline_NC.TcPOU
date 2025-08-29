@@ -1,0 +1,664 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="FB_McAxisOnline_NC" Id="{8b8ebd49-9e4c-4b16-96f2-697db23f6b71}" SpecialFunc="None">
+    <Declaration><![CDATA[//==================================================================================================
+//							Beckhoff Automation Poland
+//									06.02.2024
+//	Basic Axis Function Block object to control mostly used functionabilities, 
+//	Required libs: Tc2_MC2, Tc2_Utilities
+// 	v2.0	|| TC v 3.1.4024.53		|| New release. Inheritance added.
+// 	v1.0 	|| TC v 3.1.4022.27	 	|| First edition
+//==================================================================================================
+{attribute 'reflection'}
+FUNCTION_BLOCK FB_McAxisOnline_NC
+VAR_IN_OUT
+	Axis								: ST_McAxisOnline;
+	AxisRef								: AXIS_REF;
+END_VAR
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	mcPower								: MC_Power;
+	mcStop								: MC_Stop;
+	mcHalt								: MC_Halt;
+	mcStopSS1							: MC_Stop;
+	mcStopSS2							: MC_Stop;
+	mcReset								: MC_Reset;
+	mcHome								: MC_Home;
+	mcSetPosition						: MC_SetPosition;
+	mcJog								: MC_Jog;
+
+	mcMoveAbsolute						: MC_MoveAbsolute;
+	mcMoveRelative						: MC_MoveRelative;
+	mcMoveVelocity						: MC_MoveVelocity;
+	mcMoveModulo						: MC_MoveModulo;
+	mcMoveAbsolute2						: MC_MoveAbsolute;
+	mcMoveRelative2						: MC_MoveRelative;
+	mcMoveVelocity2						: MC_MoveVelocity;
+	mcMoveModulo2						: MC_MoveModulo;
+
+	fbNcLimitSwitch						: FB_NcSWLimitSwitchCtrl;
+	mcReadParameterSet					: MC_ReadParameterSet;
+	// Internal
+	bInitialized						: BOOL;
+			
+	// M_Initialization
+	iInitStep							: INT;
+	iInitLastStep						: INT;
+	bInitializationError				: BOOL;
+	wInitializationErrorCounter			: WORD;
+	bReadParameterSetReady				: BOOL;
+	tonDelay							: TON;
+	// Re init
+	udiOnlineChangeCntOld				: UDINT;
+	bOnlineChangeDetected				: BOOL;
+	bReInit								: BOOL;
+	bReInitialized						: BOOL;
+	bReInitializationError				: BOOL;
+	{attribute 'instance-path'}
+	{attribute 'noinit'}
+	sInstancePath						: STRING;
+
+	//Timers
+	fbReadCycle							: TON;
+	fbReadTotalOutput					: ADSREAD;
+	fbReadControllerOutput				: ADSREAD;
+	lrTotalOutput						: LREAL;
+	lrControllerOutput					: LREAL;
+END_VAR
+VAR CONSTANT
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Device dependent initialization 
+M_Init_NC();
+
+// Device independent commands, mostly NC 
+M_States();
+M_SWLimitSwitch();
+M_Stop();
+M_Power();
+M_Homing();
+M_Jog();
+M_Move();
+M_Reset();
+M_SetPosition();
+// Device independent error collection
+M_ErrorCollection();
+
+]]></ST>
+    </Implementation>
+    <Method Name="M_ErrorCollection" Id="{66d56668-13bb-4fa2-a9da-8db95ab712ef}">
+      <Declaration><![CDATA[METHOD M_ErrorCollection : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Error flags
+Axis.stError.bDriveError					:= AxisRef.Status.DriveDeviceError;
+
+Axis.stError.bNcError						:= AxisRef.Status.Error;
+
+Axis.stError.bFBError						:= Axis.mcPower.bError OR Axis.mcReset.bError OR Axis.mcHome.bError OR Axis.mcJog.bError
+													OR Axis.mcHalt.bError OR Axis.mcStop.bError OR Axis.mcSS1.bError OR Axis.mcSS2.bError
+													OR Axis.mcMoveAbsolute.bError OR Axis.mcMoveRelative.bError OR Axis.mcMoveVelocity.bError OR Axis.mcMoveModulo.bError
+													OR Axis.mcMoveAbsolute2.bError OR Axis.mcMoveRelative2.bError OR Axis.mcMoveVelocity2.bError OR Axis.mcMoveModulo2.bError
+													OR Axis.stNcLimitSwitch.bError OR Axis.mcSetPosition.bError;
+									
+Axis.stError.bCommunicationError			:= Axis.stChannelErrorCode.bError OR Axis.stSetPositionOffset.bError OR Axis.stMotorMonitoring.bError OR Axis.stHoldingBrake.bError;
+
+Axis.stError.bError						:= Axis.stError.bDriveError OR Axis.stError.bNcError OR Axis.stError.bFBError OR Axis.stError.bCommunicationError;
+Axis.bError								:= Axis.stError.bError; // Forward one stage up
+
+// Error codes
+Axis.stError.uiDriveErrorID 				:= Axis.stChannelErrorCode.uiChannelErrorCode;
+Axis.stError.uiDriveErrorIDHex 			:= Axis.stChannelErrorCode.uiChannelErrorCodeHex;
+
+Axis.stError.udiNcErrorID 				:= AxisRef.Status.ErrorID;
+Axis.stError.udiNcErrorIDHex 				:= AxisRef.Status.ErrorID;
+	
+
+Axis.stError.udiFBErrorID 				:= 	Axis.mcPower.udiErrorID + 
+														Axis.mcReset.udiErrorID + 
+														Axis.mcHome.udiErrorID + 
+														Axis.mcJog.udiErrorID +
+														Axis.mcHalt.udiErrorID + 
+														Axis.mcStop.udiErrorID + 
+														Axis.mcSS1.udiErrorID + 
+														Axis.mcSS2.udiErrorID +
+														Axis.mcMoveAbsolute.udiErrorID + 
+														Axis.mcMoveRelative.udiErrorID + 
+														Axis.mcMoveVelocity.udiErrorID + 
+														Axis.mcMoveModulo.udiErrorID +
+														Axis.mcMoveAbsolute2.udiErrorID + 
+														Axis.mcMoveRelative2.udiErrorID + 
+														Axis.mcMoveVelocity2.udiErrorID + 
+														Axis.mcMoveModulo2.udiErrorID +
+														Axis.stNcLimitSwitch.udiErrorID + 
+														Axis.mcSetPosition.udiErrorID;
+
+Axis.stError.udiFBErrorIDHex 				:= Axis.stError.udiFBErrorID;
+
+Axis.stError.udiErrorID					:= Axis.stSetPositionOffset.udiErrorID;
+Axis.stError.uiAdsErrorID					:= Axis.stChannelErrorCode.uiAdsErrId + Axis.stMotorMonitoring.uiAdsErrId + Axis.stHoldingBrake.uiAdsErrId;
+Axis.stError.uiSecErrorID					:= Axis.stChannelErrorCode.uiSecErrId + Axis.stMotorMonitoring.uiSecErrId + Axis.stHoldingBrake.uiSecErrId;
+
+Axis.stError.sNcError						:= F_AxErrMsg(Axis.stError.udiNcErrorID);
+Axis.stError.sDriveError					:= F_AX5xErrMsg(Axis.stError.uiDriveErrorID);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Homing" Id="{5dbfd3b2-fffd-46e0-ae1b-a75f01c8b0e4}">
+      <Declaration><![CDATA[METHOD M_Homing : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[mcHome(		Axis						:= AxisRef,
+			Execute						:= Axis.mcHome.bExecute,
+			Position					:= Axis.mcHome.lrPosition,
+			HomingMode					:= Axis.mcHome.eHomingMode,
+			BufferMode					:= Axis.mcHome.eBufferMode,
+			Options						:= Axis.mcHome.stOptions,
+			bCalibrationCam				:= Axis.mcHome.bCalibrationCam,
+			Done						=> Axis.mcHome.bDone,
+			Busy						=> Axis.mcHome.bBusy,
+			Active						=> Axis.mcHome.bActive,
+			CommandAborted				=> Axis.mcHome.bCommandAborted,
+			Error						=> Axis.mcHome.bError,
+			ErrorID						=> Axis.mcHome.udiErrorID);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Init_NC" Id="{949f144b-3cb3-4cfa-b7ca-e2761c672c0a}">
+      <Declaration><![CDATA[METHOD M_Init_NC : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// bInitialized flag is set just once. 
+// bReInitialized ise set each time we do online change or request reinit operation
+// bDriveAddressReady, bReadParameterSetReady, bDriveRefReady - set just once after successed read
+
+// Online change detection
+bOnlineChangeDetected					:= udiOnlineChangeCntOld <> TwinCAT_SystemInfoVarList._AppInfo.OnlineChangeCnt;
+udiOnlineChangeCntOld 					:= TwinCAT_SystemInfoVarList._AppInfo.OnlineChangeCnt;
+// Reset init
+IF bReInit OR bOnlineChangeDetected THEN
+	iInitStep							:= 0;
+END_IF
+
+//Initialization process
+CASE iInitStep OF
+	0:	// Read Parameter Set
+		
+		Axis.mcReadParameterSet.bExecute		:=	 TRUE;
+		iInitStep						:= iInitStep + 10;
+		
+	10: // Wait for data
+	
+		IF NOT Axis.mcReadParameterSet.bBusy THEN
+			Axis.mcReadParameterSet.bExecute	:=	 FALSE;
+			IF Axis.mcReadParameterSet.bDone THEN
+				iInitStep 				:= iInitStep + 10;
+				bReadParameterSetReady 	:= TRUE;
+			ELSE
+				iInitStep 				:= 1000;		// Error step
+			END_IF
+		END_IF	
+	
+	20: // Success - initialized flag, clear error
+		bReInitialized					:= bInitialized;	// TRUE only when it's not first initialization e.g. online change
+		bInitialized 					:= TRUE;
+		bReInitializationError			:= FALSE;			// TRUE only when it's not first initialization e.g. online change
+		bInitializationError			:= FALSE;
+		iInitStep 						:= iInitStep + 10;
+		
+	30: // Idle
+	
+		;
+		
+	1000: // Error step
+		wInitializationErrorCounter 	:= wInitializationErrorCounter + 1;
+		IF wInitializationErrorCounter < 100 THEN
+			iInitStep					:= iInitStep + 5;			// Go to delay
+		ELSE
+			bReInitializationError		:= bInitializationError;	// TRUE only when it's not first initialization e.g. online change
+			bInitializationError		:= TRUE;
+			bReInitialized				:= FALSE;
+			iInitStep 					:= iInitStep + 10;
+		END_IF
+
+	1005: // Delay step
+		tonDelay(IN:= TRUE, PT:= T#1S);
+		IF tonDelay.Q THEN
+			tonDelay(IN:= FALSE, PT:= T#1S);
+			iInitStep					:= 0;
+		END_IF
+		
+	1010: // Idle after error
+		;
+	
+END_CASE
+				
+mcReadParameterSet(	Parameter			:= Axis.stAxisParameter,
+					Axis				:= AxisRef,
+					Execute				:= Axis.mcReadParameterSet.bExecute,
+					Done				=> Axis.mcReadParameterSet.bDone,
+					Busy				=> Axis.mcReadParameterSet.bBusy,
+					Error				=> Axis.mcReadParameterSet.bError,
+					ErrorID				=> Axis.mcReadParameterSet.udiErrorID);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Jog" Id="{d7bd1f1b-d3d1-4d76-99f0-c118d9ac664c}">
+      <Declaration><![CDATA[METHOD M_Jog : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Direct access from bSlow or bFast, if none then free choice
+IF Axis.mcJog.bSlowForward OR Axis.mcJog.bSlowBackward THEN
+	Axis.mcJog.eMode			:= MC_JOGMODE_STANDARD_SLOW;
+ELSIF Axis.mcJog.bFastForward OR Axis.mcJog.bFastBackward THEN
+	Axis.mcJog.eMode			:= MC_JOGMODE_STANDARD_FAST;
+END_IF
+
+mcJog(		Axis						:= AxisRef,
+			JogForward					:= Axis.mcJog.bJogForward OR Axis.mcJog.bSlowForward OR Axis.mcJog.bFastForward,
+			JogBackwards				:= Axis.mcJog.bJogBackwards OR Axis.mcJog.bSlowBackward OR Axis.mcJog.bFastBackward,
+			Mode						:= Axis.mcJog.eMode,
+			Position					:= Axis.mcJog.lrPosition,
+			Velocity					:= Axis.mcJog.lrVelocity,
+			Acceleration				:= Axis.mcJog.lrAcceleration,
+			Deceleration				:= Axis.mcJog.lrDeceleration,
+			Jerk						:= Axis.mcJog.lrJerk,
+			Done						=> Axis.mcJog.bDone,
+			Busy						=> Axis.mcJog.bBusy,
+			Active						=> Axis.mcJog.bActive,
+			CommandAborted				=> Axis.mcJog.bCommandAborted,
+			Error						=> Axis.mcJog.bError,
+			ErrorID						=> Axis.mcJog.udiErrorID);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Move" Id="{596629d4-cc6a-4adc-a17e-b77affb4aa5f}">
+      <Declaration><![CDATA[METHOD M_Move : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[{region "Primary"}
+mcMoveAbsolute(	Axis					:= AxisRef,
+				Execute					:= Axis.mcMoveAbsolute.bExecute,
+				Position				:= Axis.mcMoveAbsolute.lrPosition,
+				Velocity				:= Axis.mcMoveAbsolute.lrVelocity,
+				Acceleration			:= Axis.mcMoveAbsolute.lrAcceleration,
+				Deceleration			:= Axis.mcMoveAbsolute.lrDeceleration,
+				Jerk					:= Axis.mcMoveAbsolute.lrJerk,
+				BufferMode				:= Axis.mcMoveAbsolute.eBufferMode,
+				Options					:= Axis.mcMoveAbsolute.stOptions,
+				Done					=> Axis.mcMoveAbsolute.bDone,
+				Busy					=> Axis.mcMoveAbsolute.bBusy,
+				Active					=> Axis.mcMoveAbsolute.bActive,
+				CommandAborted			=> Axis.mcMoveAbsolute.bCommandAborted,
+				Error					=> Axis.mcMoveAbsolute.bError,
+				ErrorID					=> Axis.mcMoveAbsolute.udiErrorID);
+
+mcMoveRelative(	Axis					:= AxisRef,
+				Execute					:= Axis.mcMoveRelative.bExecute,
+				Distance				:= Axis.mcMoveRelative.lrDistance,
+				Velocity				:= Axis.mcMoveRelative.lrVelocity,
+				Acceleration			:= Axis.mcMoveRelative.lrAcceleration,
+				Deceleration			:= Axis.mcMoveRelative.lrDeceleration,
+				Jerk					:= Axis.mcMoveRelative.lrJerk,
+				BufferMode				:= Axis.mcMoveRelative.eBufferMode,
+				Options					:= Axis.mcMoveRelative.stOptions,
+				Done					=> Axis.mcMoveRelative.bDone,
+				Busy					=> Axis.mcMoveRelative.bBusy,
+				Active					=> Axis.mcMoveRelative.bActive,
+				CommandAborted			=> Axis.mcMoveRelative.bCommandAborted,
+				Error					=> Axis.mcMoveRelative.bError,
+				ErrorID					=> Axis.mcMoveRelative.udiErrorID);
+				
+mcMoveVelocity(	Axis					:= AxisRef,
+				Execute					:= Axis.mcMoveVelocity.bExecute,
+				Velocity				:= Axis.mcMoveVelocity.lrVelocity,
+				Acceleration			:= Axis.mcMoveVelocity.lrAcceleration,
+				Deceleration			:= Axis.mcMoveVelocity.lrDeceleration,
+				Jerk					:= Axis.mcMoveVelocity.lrJerk,
+				Direction				:= Axis.mcMoveVelocity.eDirection,
+				BufferMode				:= Axis.mcMoveVelocity.eBufferMode,
+				Options					:= Axis.mcMoveVelocity.stOptions,
+				InVelocity				=> Axis.mcMoveVelocity.bInVelocity,
+				Busy					=> Axis.mcMoveVelocity.bBusy,
+				Active					=> Axis.mcMoveVelocity.bActive,
+				CommandAborted			=> Axis.mcMoveVelocity.bCommandAborted,
+				Error					=> Axis.mcMoveVelocity.bError,
+				ErrorID					=> Axis.mcMoveVelocity.udiErrorID);
+Axis.mcMoveVelocity.bDone		:= Axis.mcMoveVelocity.bInVelocity;
+
+mcMoveModulo(	Axis					:= AxisRef,
+				Execute					:= Axis.mcMoveModulo.bExecute,
+				Position				:= Axis.mcMoveModulo.lrPosition,
+				Velocity				:= Axis.mcMoveModulo.lrVelocity,
+				Acceleration			:= Axis.mcMoveModulo.lrAcceleration,
+				Deceleration			:= Axis.mcMoveModulo.lrDeceleration,
+				Jerk					:= Axis.mcMoveModulo.lrJerk,
+				Direction				:= Axis.mcMoveModulo.eDirection,
+				BufferMode				:= Axis.mcMoveModulo.eBufferMode,
+				Options					:= Axis.mcMoveModulo.stOptions,
+				Done					=> Axis.mcMoveModulo.bDone,
+				Busy					=> Axis.mcMoveModulo.bBusy,
+				Active					=> Axis.mcMoveModulo.bActive,
+				CommandAborted			=> Axis.mcMoveModulo.bCommandAborted,
+				Error					=> Axis.mcMoveModulo.bError,
+				ErrorID					=> Axis.mcMoveModulo.udiErrorID);
+{endregion}
+{region "Secondary"}
+mcMoveAbsolute2(Axis					:= AxisRef,
+				Execute					:= Axis.mcMoveAbsolute2.bExecute,
+				Position				:= Axis.mcMoveAbsolute2.lrPosition,
+				Velocity				:= Axis.mcMoveAbsolute2.lrVelocity,
+				Acceleration			:= Axis.mcMoveAbsolute2.lrAcceleration,
+				Deceleration			:= Axis.mcMoveAbsolute2.lrDeceleration,
+				Jerk					:= Axis.mcMoveAbsolute2.lrJerk,
+				BufferMode				:= Axis.mcMoveAbsolute2.eBufferMode,
+				Options					:= Axis.mcMoveAbsolute2.stOptions,
+				Done					=> Axis.mcMoveAbsolute2.bDone,
+				Busy					=> Axis.mcMoveAbsolute2.bBusy,
+				Active					=> Axis.mcMoveAbsolute2.bActive,
+				CommandAborted			=> Axis.mcMoveAbsolute2.bCommandAborted,
+				Error					=> Axis.mcMoveAbsolute2.bError,
+				ErrorID					=> Axis.mcMoveAbsolute2.udiErrorID);
+
+mcMoveRelative2(Axis					:= AxisRef,
+				Execute					:= Axis.mcMoveRelative2.bExecute,
+				Distance				:= Axis.mcMoveRelative2.lrDistance,
+				Velocity				:= Axis.mcMoveRelative2.lrVelocity,
+				Acceleration			:= Axis.mcMoveRelative2.lrAcceleration,
+				Deceleration			:= Axis.mcMoveRelative2.lrDeceleration,
+				Jerk					:= Axis.mcMoveRelative2.lrJerk,
+				BufferMode				:= Axis.mcMoveRelative2.eBufferMode,
+				Options					:= Axis.mcMoveRelative2.stOptions,
+				Done					=> Axis.mcMoveRelative2.bDone,
+				Busy					=> Axis.mcMoveRelative2.bBusy,
+				Active					=> Axis.mcMoveRelative2.bActive,
+				CommandAborted			=> Axis.mcMoveRelative2.bCommandAborted,
+				Error					=> Axis.mcMoveRelative2.bError,
+				ErrorID					=> Axis.mcMoveRelative2.udiErrorID);
+				
+mcMoveVelocity2(Axis					:= AxisRef,
+				Execute					:= Axis.mcMoveVelocity2.bExecute,
+				Velocity				:= Axis.mcMoveVelocity2.lrVelocity,
+				Acceleration			:= Axis.mcMoveVelocity2.lrAcceleration,
+				Deceleration			:= Axis.mcMoveVelocity2.lrDeceleration,
+				Jerk					:= Axis.mcMoveVelocity2.lrJerk,
+				Direction				:= Axis.mcMoveVelocity2.eDirection,
+				BufferMode				:= Axis.mcMoveVelocity2.eBufferMode,
+				Options					:= Axis.mcMoveVelocity2.stOptions,
+				InVelocity				=> Axis.mcMoveVelocity2.bInVelocity,
+				Busy					=> Axis.mcMoveVelocity2.bBusy,
+				Active					=> Axis.mcMoveVelocity2.bActive,
+				CommandAborted			=> Axis.mcMoveVelocity2.bCommandAborted,
+				Error					=> Axis.mcMoveVelocity2.bError,
+				ErrorID					=> Axis.mcMoveVelocity2.udiErrorID);
+Axis.mcMoveVelocity2.bDone	:= Axis.mcMoveVelocity2.bInVelocity;
+
+mcMoveModulo2(	Axis					:= AxisRef,
+				Execute					:= Axis.mcMoveModulo2.bExecute,
+				Position				:= Axis.mcMoveModulo2.lrPosition,
+				Velocity				:= Axis.mcMoveModulo2.lrVelocity,
+				Acceleration			:= Axis.mcMoveModulo2.lrAcceleration,
+				Deceleration			:= Axis.mcMoveModulo2.lrDeceleration,
+				Jerk					:= Axis.mcMoveModulo2.lrJerk,
+				Direction				:= Axis.mcMoveModulo2.eDirection,
+				BufferMode				:= Axis.mcMoveModulo2.eBufferMode,
+				Options					:= Axis.mcMoveModulo2.stOptions,
+				Done					=> Axis.mcMoveModulo2.bDone,
+				Busy					=> Axis.mcMoveModulo2.bBusy,
+				Active					=> Axis.mcMoveModulo2.bActive,
+				CommandAborted			=> Axis.mcMoveModulo2.bCommandAborted,
+				Error					=> Axis.mcMoveModulo2.bError,
+				ErrorID					=> Axis.mcMoveModulo2.udiErrorID);
+{endregion}]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Power" Id="{b4673b4c-d090-4d67-94ad-cbec5fe5ecca}">
+      <Declaration><![CDATA[METHOD M_Power : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[mcPower(	Axis						:= AxisRef,									//
+			Enable						:= Axis.mcPower.bEnable,
+			Enable_Positive				:= Axis.mcPower.bEnable_Positive,
+			Enable_Negative				:= Axis.mcPower.bEnable_Negative,
+			Override					:= Axis.mcPower.lrOverride,
+			BufferMode					:= Axis.mcPower.eBufferMode,
+			Options						:= Axis.mcPower.stOptions,
+			Status						=> Axis.mcPower.bStatus,
+			Busy						=> Axis.mcPower.bBusy,
+			Active						=> Axis.mcPower.bActive,
+			Error						=> Axis.mcPower.bError,
+			ErrorID						=> Axis.mcPower.udiErrorID);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Reset" Id="{ddb248b6-1e40-4f7f-b8c7-2b5f8e99b7de}">
+      <Declaration><![CDATA[METHOD M_Reset : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[mcReset(	Axis						:= AxisRef,
+			Execute						:= Axis.mcReset.bExecute,
+			Done						=> Axis.mcReset.bDone,
+			Busy						=> Axis.mcReset.bBusy,
+			Error						=> Axis.mcReset.bError,
+			ErrorID						=> Axis.mcReset.udiErrorID);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_SetPosition" Id="{ee5a91ad-7149-4842-b4ea-5156be2b1c73}">
+      <Declaration><![CDATA[METHOD M_SetPosition : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[mcSetPosition(		Axis				:= AxisRef,
+					Execute				:= Axis.mcSetPosition.bExecute,
+					Position			:= Axis.mcSetPosition.lrPosition,
+					Mode				:= Axis.mcSetPosition.bMode,
+					Options				:= Axis.mcSetPosition.stOptions,
+					Done				=> Axis.mcSetPosition.bDone,
+					Busy				=> Axis.mcSetPosition.bBusy,
+					Error				=> Axis.mcSetPosition.bError,
+					ErrorID				=> Axis.mcSetPosition.udiErrorID);
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_States" Id="{cd8183ec-6402-4ebd-983a-e3cf7e5b673a}">
+      <Declaration><![CDATA[METHOD M_States : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Read States and forward main states
+AxisRef.ReadStatus();
+Axis.stStatus.stAxisStatus		:= AxisRef.Status;
+Axis.stStatus.dwAxisId			:= AxisRef.NcToPlc.AxisId;
+Axis.stStatus.bNcError			:= AxisRef.Status.Error;
+Axis.stStatus.udiNcErrorCode		:= AxisRef.Status.ErrorID;
+Axis.stStatus.udiNcErrorCodeHex	:= AxisRef.Status.ErrorID;
+
+Axis.stStatus.sAxisName			:= Axis.stAxisParameter.sAxisName;
+Axis.stStatus.lrActPos			:= AxisRef.NcToPlc.ActPos;
+Axis.stStatus.lrModuloActPos		:= AxisRef.NcToPlc.ModuloActPos;
+Axis.stStatus.lrActVelo			:= AxisRef.NcToPlc.ActVelo;
+Axis.stStatus.lrActAcc			:= AxisRef.NcToPlc.ActAcc;
+Axis.stStatus.lrActTorque			:= AxisRef.NcToPlc.ActTorque;
+Axis.stStatus.lrPosDiff			:= AxisRef.NcToPlc.PosDiff;
+Axis.stStatus.lrPosDiff_Max		:= MAX(AxisRef.NcToPlc.PosDiff, Axis.stStatus.lrPosDiff_Max);
+Axis.stStatus.lrPosDiff_Min		:= MIN(AxisRef.NcToPlc.PosDiff, Axis.stStatus.lrPosDiff_Min);
+Axis.stStatus.lrSetPos			:= AxisRef.NcToPlc.SetPos;
+Axis.stStatus.lrSetVelo			:= AxisRef.NcToPlc.SetVelo;
+Axis.stStatus.lrSetAcc			:= AxisRef.NcToPlc.SetAcc;
+Axis.stStatus.lrSetTorque			:= AxisRef.NcToPlc.SetTorque;
+Axis.stStatus.bAxisReady			:= AxisRef.Status.Operational;
+Axis.stStatus.bHomed				:= AxisRef.Status.Homed;
+Axis.stStatus.bCoupled			:= AxisRef.Status.Coupled;
+
+// zezwolenie na zjazd z krancowki hw
+AxisRef.PlcToNc.ControlDWord.8				:= Axis.stStatus.bAcceptBlockedDrive;
+
+fbReadCycle(IN := NOT fbReadCycle.Q, PT := T#500MS);
+fbReadTotalOutput(
+	NETID:= , 
+	PORT:= 501 , 
+	IDXGRP:= 16#7100 + AxisRef.NcToPlc.AxisId , 
+	IDXOFFS:= 16#3 , 
+	LEN:= SIZEOF(lrTotalOutput) , 
+	DESTADDR:= ADR(lrTotalOutput), 
+	READ:=fbReadCycle.Q );
+
+Axis.stStatus.lrTotalOutputInPercent := lrTotalOutput * 100.0;
+
+fbReadControllerOutput(
+	NETID:= , 
+	PORT:= 501 , 
+	IDXGRP:= 16#6100 + AxisRef.NcToPlc.AxisId , 
+	IDXOFFS:= 16#3 , 
+	LEN:= SIZEOF(lrControllerOutput) , 
+	DESTADDR:= ADR(lrControllerOutput), 
+	READ:=fbReadCycle.Q );
+
+Axis.stStatus.lrControllerOutputInPercent := lrControllerOutput * 100.0;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Stop" Id="{c6b94d00-7195-4070-bcb3-0a9209680881}">
+      <Declaration><![CDATA[METHOD M_Stop : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[mcHalt(		Axis						:= AxisRef,
+			Execute						:= Axis.mcHalt.bExecute,
+			Deceleration				:= Axis.mcHalt.lrDeceleration,
+			Jerk						:= Axis.mcHalt.lrJerk,
+			BufferMode					:= Axis.mcHalt.eBufferMode,
+			Options						:= Axis.mcHalt.stOptions,
+			Done						=> Axis.mcHalt.bDone,
+			Busy						=> Axis.mcHalt.bBusy,
+			Active						=> Axis.mcHalt.bActive,
+			CommandAborted				=> Axis.mcHalt.bCommandAborted,
+			Error						=> Axis.mcHalt.bError,
+			ErrorID						=> Axis.mcHalt.udiErrorID);
+			
+mcStop(		Axis						:= AxisRef,
+			Execute						:= Axis.mcStop.bExecute,
+			Deceleration				:= Axis.mcStop.lrDeceleration,
+			Jerk						:= Axis.mcStop.lrJerk,
+			Options						:= Axis.mcStop.stOptions,
+			Done						=> Axis.mcStop.bDone,
+			Busy						=> Axis.mcStop.bBusy,
+			Active						=> Axis.mcStop.bActive,
+			CommandAborted				=> Axis.mcStop.bCommandAborted,
+			Error						=> Axis.mcStop.bError,
+			ErrorID						=> Axis.mcStop.udiErrorID);
+			
+mcStopSS2(	Axis						:= AxisRef,
+			Execute						:= Axis.mcSS2.bExecute,
+			Deceleration				:= Axis.mcSS2.lrDeceleration,
+			Jerk						:= Axis.mcSS2.lrJerk,
+			Options						:= Axis.mcSS2.stOptions,
+			Done						=> Axis.mcSS2.bDone,
+			Busy						=> Axis.mcSS2.bBusy,
+			Active						=> Axis.mcSS2.bActive,
+			CommandAborted				=> Axis.mcSS2.bCommandAborted,
+			Error						=> Axis.mcSS2.bError,
+			ErrorID						=> Axis.mcSS2.udiErrorID);
+			
+mcStopSS1(	Axis						:= AxisRef,
+			Execute						:= Axis.mcSS1.bExecute,
+			Deceleration				:= Axis.mcSS1.lrDeceleration,
+			Jerk						:= Axis.mcSS1.lrJerk,
+			Options						:= Axis.mcSS1.stOptions,
+			Done						=> Axis.mcSS1.bDone,
+			Busy						=> Axis.mcSS1.bBusy,
+			Active						=> Axis.mcSS1.bActive,
+			CommandAborted				=> Axis.mcSS1.bCommandAborted,
+			Error						=> Axis.mcSS1.bError,
+			ErrorID						=> Axis.mcSS1.udiErrorID);
+// SS1 - after MC_Stop function we have to disable drive			
+Axis.mcPower.bEnable R= Axis.mcPower.bEnable_Positive R= Axis.mcPower.bEnable_Negative R= (Axis.mcSS1.bDone OR Axis.mcSS1.bCommandAborted OR Axis.mcSS1.bError);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_SWLimitSwitch" Id="{fdca5ce9-9784-4207-a171-5f2b9564f280}">
+      <Declaration><![CDATA[METHOD M_SWLimitSwitch : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[fbNcLimitSwitch(	udiAxisID		:= AxisRef.NcToPlc.AxisId, 
+					bRead			:= Axis.stNcLimitSwitch.bRead, 
+					bWrite			:= Axis.stNcLimitSwitch.bWrite, 
+					bReset			:= Axis.stNcLimitSwitch.bReset, 
+					lrSetMinPos		:= Axis.stNcLimitSwitch.lrSetMinPos, 
+					lrSetMaxPos		:= Axis.stNcLimitSwitch.lrSetMaxPos, 
+					bSetMinMon		:= Axis.stNcLimitSwitch.bSetMinMon, 
+					bSetMaxMon		:= Axis.stNcLimitSwitch.bSetMaxMon, 
+					bBusy			=> Axis.stNcLimitSwitch.bBusy, 
+					bError			=> Axis.stNcLimitSwitch.bError, 
+					udiErrorID		=> Axis.stNcLimitSwitch.udiErrorID, 
+					lrActMinPos		=> Axis.stNcLimitSwitch.lrActMinPos, 
+					lrActMaxPos		=> Axis.stNcLimitSwitch.lrActMaxPos, 
+					bActMinMon		=> Axis.stNcLimitSwitch.bActMinMon, 
+					bActMaxMon		=> Axis.stNcLimitSwitch.bActMaxMon);]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_McAxisOnline_NC">
+      <LineId Id="3" Count="15" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_NC.M_ErrorCollection">
+      <LineId Id="3" Count="49" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_NC.M_Homing">
+      <LineId Id="3" Count="11" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_NC.M_Init_NC">
+      <LineId Id="3" Count="70" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_NC.M_Jog">
+      <LineId Id="3" Count="20" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_NC.M_Move">
+      <LineId Id="3" Count="132" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_NC.M_Power">
+      <LineId Id="3" Count="10" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_NC.M_Reset">
+      <LineId Id="3" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_NC.M_SetPosition">
+      <LineId Id="3" Count="8" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_NC.M_States">
+      <LineId Id="3" Count="48" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_NC.M_Stop">
+      <LineId Id="3" Count="48" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_McAxisOnline_NC.M_SWLimitSwitch">
+      <LineId Id="3" Count="13" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

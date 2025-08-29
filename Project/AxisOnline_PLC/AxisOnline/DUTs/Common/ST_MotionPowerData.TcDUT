@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="ST_MotionPowerData" Id="{0dd0171c-470a-43ec-b505-e23a4d6b0d27}">
+    <Declaration><![CDATA[//==================================================================================================
+//							Beckhoff Automation Poland
+//									28.10.2021
+//	Struktura prezentująca podstawowe parametry konfiguracji pradu osi
+//	Wykorzystana w ST_McAxisOnline, FB_MotorMonitoringAX5000 i FB_MotorMonitoringAX8000
+//  v1.0	|| TC v 3.1.4024.22	|| - pierwsza wersja
+//==================================================================================================
+TYPE ST_MotionPowerData :
+STRUCT
+	rMotorStandstillCurrent						: REAL;			// AX8000: 16#6075 (Ch A)/ 16#6875 (Ch B);		|| AX5000: S-0-0111; 		||	units: [A]		
+	rMotorStandstillTorque						: REAL;			// AX8000: 16#6076 (Ch A)/ 16#6876 (Ch B);		|| AX5000: P-0-0070; 		||	units: [Nm]
+	rMotorPeakCurrent							: REAL;			// AX8000: 16#32C0 (Ch A)/ 16#36C0 (Ch B):03;	|| AX5000: S-0-0109; 		||	units: [A]
+                                    			                
+	rChannelRatedCurrent						: REAL;			// AX8000: 16#3243 (Ch A)/ 16#3643 (Ch B):03;	|| AX5000: P-0-0091; 		||	units: [A]
+	rChannelPeakCurrent							: REAL;			// AX8000: 16#3243 (Ch A)/ 16#3643 (Ch B):04;	|| AX5000: P-0-0090; 		||	units: [A]
+	                                			                
+	rConfiguredChannelRatedCurrent				: REAL;			// AX8000: 16#3243 (Ch A)/ 16#3643 (Ch B):01;	|| AX5000: P-0-0093; 		||	units: [A]
+	rConfiguredChannelPeakCurrent				: REAL;			// AX8000: 16#3243 (Ch A)/ 16#3643 (Ch B):02;	|| AX5000: P-0-0092; 		||	units: [A]
+	rConfiguredChannelPeakTorque				: REAL;			// AX8000: 16#3243 (Ch A)/ 16#3643 (Ch B):05; 								||	units: [depends on value of Object (default = x * 1 Nm) 16#3005:05 (Ch A)/ 16#3405:05 (Ch B)]
+																// AX5000: P-0-0094 														||	units: [Nm]
+//=============================== Percentage values ================================================
+	rNominalTorquePercMotor						: REAL;			// [%]
+	rNominalTorquePercChannel					: REAL;			// [%]
+	rNominalTorquePercConfigured				: REAL;			// [%]
+	                                			                
+	rPeakTorquePercMotor						: REAL;			// [%]
+	rPeakTorquePercChannel						: REAL;			// [%]
+	rPeakTorquePercConfigured					: REAL;			// [%]
+//==================================================================================================
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
