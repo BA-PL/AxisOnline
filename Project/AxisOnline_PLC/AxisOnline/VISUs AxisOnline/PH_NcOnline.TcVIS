@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.12">
   <Visu Name="PH_NcOnline" Id="{3c61d9e4-30a3-475e-9c77-b2d9a1d6216d}">
     <XmlArchive>
       <Data>
@@ -115,6 +115,7 @@
                           <v n="ExplicitColor">-16777216</v>
                           <v n="CanonicalName">"Font-Standard"</v>
                           <v n="FontName">"Arial"</v>
+                          <v n="DisplayName">""</v>
                           <v n="FontSize">12</v>
                           <v n="ScriptIdentification">0</v>
                           <v n="DoubleFontSize" t="Double">0</v>
@@ -164,6 +165,10 @@
                 <d n="SubElements" t="Hashtable" />
                 <v n="VisualElementId">0</v>
                 <l n="UserManagementAccessRights" t="ArrayList" />
+                <v n="AnimationDuration">"0"</v>
+                <v n="BringToForeground">""</v>
+                <v n="ElementVersion" t="Byte">0</v>
+                <n n="TabOrder" />
               </o>
               <o>
                 <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -262,6 +267,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -323,6 +329,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">43</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -415,6 +425,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -476,6 +487,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">49</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -568,6 +583,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -629,6 +645,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">51</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -721,6 +741,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -782,6 +803,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">53</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -874,6 +899,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -935,6 +961,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">56</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -1027,6 +1057,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -1088,6 +1119,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">58</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                     </l>
                     <n n="VisualElementDescription" />
@@ -1212,6 +1247,7 @@
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -1265,6 +1301,10 @@
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">47</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -1360,6 +1400,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -1421,6 +1462,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">66</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -1513,6 +1558,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -1574,6 +1620,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">64</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -1666,6 +1716,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -1727,6 +1778,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">62</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                     </l>
                     <n n="VisualElementDescription" />
@@ -1851,6 +1906,7 @@
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -1904,6 +1960,10 @@
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">60</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -1999,6 +2059,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -2060,6 +2121,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">70</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -2152,6 +2217,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -2213,6 +2279,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">72</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -2305,6 +2375,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -2366,6 +2437,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">74</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" cet="ComplexInput">
@@ -2487,6 +2562,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -2548,6 +2624,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">76</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" cet="ComplexInput">
@@ -2669,6 +2749,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -2730,6 +2811,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">131</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" cet="ComplexInput">
@@ -2851,6 +2936,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -2912,6 +2998,10 @@
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">133</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -3018,6 +3108,7 @@
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -3089,6 +3180,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">135</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                     </l>
                     <n n="VisualElementDescription" />
@@ -3213,6 +3308,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -3266,6 +3362,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">68</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -3374,6 +3474,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -3419,6 +3520,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">80</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -3527,6 +3632,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -3572,6 +3678,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">92</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -3684,6 +3794,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -3752,6 +3863,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">82</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -3860,6 +3975,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -3905,6 +4021,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">84</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -4013,6 +4133,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -4058,6 +4179,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">88</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -4170,6 +4295,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -4238,6 +4364,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">86</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -4346,6 +4476,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -4391,6 +4522,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">94</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -4499,6 +4634,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -4544,6 +4680,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">96</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -4656,6 +4796,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -4724,6 +4865,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">98</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -4839,6 +4984,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -4880,6 +5026,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">14</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -4990,6 +5140,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -5035,6 +5186,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">15</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -5145,6 +5300,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -5194,6 +5350,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">16</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -5304,6 +5464,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -5353,6 +5514,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">118</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -5463,6 +5628,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -5512,6 +5678,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">116</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                     </l>
                     <n n="VisualElementDescription" />
@@ -5624,6 +5794,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -5673,6 +5844,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">119</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -5788,6 +5963,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -5829,6 +6005,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">110</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -5937,6 +6117,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Heading"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">20</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -5986,6 +6167,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">7</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -6094,6 +6279,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -6139,6 +6325,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">108</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -6247,6 +6437,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -6292,6 +6483,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">121</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                     </l>
                     <n n="VisualElementDescription" />
@@ -6404,6 +6599,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -6453,6 +6649,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">151</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -6565,6 +6765,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -6606,6 +6807,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">124</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -6714,6 +6919,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Heading"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">20</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -6763,6 +6969,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">125</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -6871,6 +7081,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -6916,6 +7127,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">126</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -7031,6 +7246,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -7072,6 +7288,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">19</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -7182,6 +7402,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -7227,6 +7448,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">20</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -7337,6 +7562,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -7386,6 +7612,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">21</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -7496,6 +7726,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -7541,6 +7772,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">138</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                     </l>
                     <n n="VisualElementDescription" />
@@ -7653,6 +7888,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -7702,6 +7938,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">140</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -7817,6 +8057,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -7858,6 +8099,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">24</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -7968,6 +8213,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -8013,6 +8259,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">25</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -8123,6 +8373,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -8172,6 +8423,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">26</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -8282,6 +8537,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -8327,6 +8583,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">142</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                     </l>
                     <n n="VisualElementDescription" />
@@ -8439,6 +8699,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -8488,6 +8749,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">147</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -8603,6 +8868,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -8644,6 +8910,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">11</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -8754,6 +9024,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -8799,6 +9070,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">8</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -8909,6 +9184,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -8958,6 +9234,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">10</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -9068,6 +9348,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -9113,6 +9394,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">145</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                     </l>
                     <n n="VisualElementDescription" />
@@ -9225,6 +9510,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -9274,6 +9560,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">146</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -9389,6 +9679,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -9430,6 +9721,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">29</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -9540,6 +9835,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -9585,6 +9881,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">30</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -9695,6 +9995,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -9737,7 +10038,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <v n="VisualElementIdentifier">"GenElemInst_32"</v>
                         <n n="VisualElementOfflinePaintCommands" />
                         <n n="VisualElementFrameInformation" />
-                        <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                        <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
                           <v>OnMouseClick</v>
                           <a cet="InputBoxInputAction">
                             <o>
@@ -9748,7 +10049,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="InputBoxDialogTitle">""</v>
                               <v n="Password">false</v>
                               <v n="UseTextOutputVariable">true</v>
-                              <v n="TextOutputVariableInitialized">false</v>
+                              <v n="TextOutputVariableInitialized">true</v>
                               <v n="OtherVarConversion">""</v>
                               <v n="Format">""</v>
                               <v n="DialogPosition" t="DialogPositionSetting">UseGlobalSetting</v>
@@ -9763,6 +10064,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">31</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -9873,6 +10178,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -9918,6 +10224,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">153</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                     </l>
                     <n n="VisualElementDescription" />
@@ -10030,6 +10340,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -10079,6 +10390,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">154</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -10194,6 +10509,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -10235,6 +10551,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">39</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -10345,6 +10665,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -10390,6 +10711,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">40</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -10500,6 +10825,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -10549,6 +10875,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">41</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -10641,6 +10971,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -10702,6 +11033,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">156</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -10794,6 +11129,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -10855,6 +11191,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">158</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                     </l>
                     <n n="VisualElementDescription" />
@@ -10967,6 +11307,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -11016,6 +11357,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">159</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" cet="ComplexInput">
@@ -11121,6 +11466,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="AdditionalFontStyle" t="UInt16">0</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -11186,6 +11532,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">163</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" cet="ComplexInput">
@@ -11291,6 +11641,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="AdditionalFontStyle" t="UInt16">0</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -11356,6 +11707,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">164</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" cet="ComplexInput">
@@ -11465,6 +11820,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="AdditionalFontStyle" t="UInt16">0</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -11530,6 +11886,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">165</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" cet="ComplexInput">
@@ -11635,6 +11995,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="AdditionalFontStyle" t="UInt16">0</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -11700,6 +12061,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">166</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" cet="ComplexInput">
@@ -11809,6 +12174,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-HeadingLarge"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">28</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -11874,6 +12240,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">167</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" cet="ComplexInput">
@@ -11983,6 +12353,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-HeadingLarge"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">28</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -12048,6 +12419,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">168</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" cet="ComplexInput">
@@ -12157,6 +12532,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-HeadingLarge"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">28</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -12222,6 +12598,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">169</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" cet="ComplexInput">
@@ -12331,6 +12711,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-HeadingLarge"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">28</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -12396,6 +12777,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">170</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -12504,6 +12889,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -12549,6 +12935,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">172</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -12657,6 +13047,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -12706,6 +13097,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">174</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -12821,6 +13216,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -12862,6 +13258,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">34</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -12972,6 +13372,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -13017,6 +13418,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">35</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -13127,6 +13532,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -13176,6 +13582,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">36</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -13286,6 +13696,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -13331,6 +13742,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">149</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -13441,6 +13856,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -13490,6 +13906,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">181</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                       <o>
                         <a n="ConfiguredComplexInputs" et="ComplexInput" />
@@ -13600,6 +14020,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                                   <v n="ExplicitColor">-16777216</v>
                                   <v n="CanonicalName">"Font-Standard"</v>
                                   <v n="FontName">"Arial"</v>
+                                  <v n="DisplayName">""</v>
                                   <v n="FontSize">12</v>
                                   <v n="ScriptIdentification">0</v>
                                   <v n="DoubleFontSize" t="Double">0</v>
@@ -13649,6 +14070,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                         <d n="SubElements" t="Hashtable" />
                         <v n="VisualElementId">183</v>
                         <l n="UserManagementAccessRights" t="ArrayList" />
+                        <v n="AnimationDuration">"0"</v>
+                        <v n="BringToForeground">""</v>
+                        <v n="ElementVersion" t="Byte">0</v>
+                        <n n="TabOrder" />
                       </o>
                     </l>
                     <n n="VisualElementDescription" />
@@ -13761,6 +14186,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                               <v n="ExplicitColor">-16777216</v>
                               <v n="CanonicalName">"Font-Standard"</v>
                               <v n="FontName">"Arial"</v>
+                              <v n="DisplayName">""</v>
                               <v n="FontSize">12</v>
                               <v n="ScriptIdentification">0</v>
                               <v n="DoubleFontSize" t="Double">0</v>
@@ -13810,6 +14236,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">184</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
+                    <v n="AnimationDuration">"0"</v>
+                    <v n="BringToForeground">""</v>
+                    <v n="ElementVersion" t="Byte">0</v>
+                    <n n="TabOrder" />
                   </o>
                 </l>
                 <n n="VisualElementDescription" />
@@ -13934,6 +14364,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                           <v n="ExplicitColor">-16777216</v>
                           <v n="CanonicalName">"Font-HeadingLarge"</v>
                           <v n="FontName">"Arial"</v>
+                          <v n="DisplayName">""</v>
                           <v n="FontSize">28</v>
                           <v n="ScriptIdentification">0</v>
                           <v n="DoubleFontSize" t="Double">0</v>
@@ -13987,6 +14418,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                 <d n="SubElements" t="Hashtable" />
                 <v n="VisualElementId">3</v>
                 <l n="UserManagementAccessRights" t="ArrayList" />
+                <v n="AnimationDuration">"0"</v>
+                <v n="BringToForeground">""</v>
+                <v n="ElementVersion" t="Byte">0</v>
+                <n n="TabOrder" />
               </o>
             </l>
             <v n="BackgroundBitmapId">""</v>
@@ -14000,10 +14435,13 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
               <v n="BgUseColor">-65536</v>
               <v n="BgUseGradient">false</v>
             </o>
+            <v n="AllElementsHaveDynamicVisibility">false</v>
           </o>
           <o n="GeneratedLMMDescriptions" t="GeneratedLanguageModelEntriesData">
             <o n="GeneratedVisuFbDescription" t="GenericFbDescription">
               <d n="FbMethods" t="CaseInsensitiveHashtable" ckt="String" cvt="Guid">
+                <v>AreAllElementsHidden</v>
+                <v>52d84626-faf5-5a46-aa75-382e1f1b16e3</v>
                 <v>ContainsPoint</v>
                 <v>15e88fc5-d9ff-4181-8db1-10e5c7fbe174</v>
                 <v>Destruct</v>
@@ -14014,6 +14452,8 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                 <v>91e808e8-6a57-4840-bb5a-66a3a68c35bc</v>
                 <v>FB_Reinit</v>
                 <v>0c633810-b5ee-4289-8189-c64db9a71cf4</v>
+                <v>GetCallerNamespace</v>
+                <v>2d577f94-7422-5c8b-805f-37a90faa13af</v>
                 <v>GetClientData</v>
                 <v>18de97f5-a1bf-4982-8752-67c1e02e6db0</v>
                 <v>GetDialogInterface</v>
@@ -14024,6 +14464,8 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                 <v>3883eba2-d9b2-4c7c-8f2a-e61ef95cc5ab</v>
                 <v>GetElementIdArray</v>
                 <v>13d55f21-2f4e-434d-ad7d-2bdb427ec546</v>
+                <v>GetElementName</v>
+                <v>e5d04570-8f4a-5e3d-b6fe-35021614e753</v>
                 <v>GetInitializeVersion</v>
                 <v>8162b8bb-410b-4103-b75a-e574200146fd</v>
                 <v>GetInstance</v>
@@ -14040,6 +14482,8 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                 <v>db5b7f94-b5c9-47d7-9751-10f322093899</v>
                 <v>GetSurroundingRect</v>
                 <v>7fb9a58a-bf19-483f-9f2f-a0c2a1a8da1c</v>
+                <v>GetTabOrderIdArray</v>
+                <v>64595741-6424-5809-9439-a167ad63eec4</v>
                 <v>GetText</v>
                 <v>de497c59-9716-4d88-811d-58972743ecb6</v>
                 <v>GetTextProperties</v>
@@ -14068,6 +14512,8 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                 <v>1c7f8090-2c91-4123-9896-a54b3140dd0f</v>
                 <v>SetClientData</v>
                 <v>0e9d2381-d25b-48ce-bf00-aa8dadf5c231</v>
+                <v>SetContainerSize</v>
+                <v>db4d224f-5834-5884-9f22-36204085e04b</v>
                 <v>SetDialogInterface</v>
                 <v>f9ded492-8b94-4c8c-aa42-815f2bc3d5ca</v>
                 <v>SetResult</v>
@@ -14078,6 +14524,12 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                 <v>74f30ce4-5208-4dea-b5bc-72e43261ca0e</v>
                 <v>Update</v>
                 <v>bfdad217-caff-4256-a524-ff753f411b71</v>
+              </d>
+              <d n="FbProperties" t="CaseInsensitiveHashtable" ckt="String" cvt="Guid">
+                <v>__getContainer</v>
+                <v>5d340217-c974-517c-9c90-d2e7b0511415</v>
+                <v>__getVisu</v>
+                <v>91a0715e-1540-5607-a7b6-629e80fe5af0</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{3c61d9e4-30a3-475e-9c77-b2d9a1d6216d}</v>
@@ -14095,6 +14547,7 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                 <v>FB_Reinit</v>
                 <v>3ba90594-7ce4-45d7-845f-cf77c6018909</v>
               </d>
+              <d n="FbProperties" t="CaseInsensitiveHashtable" />
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{bfefd721-7360-47af-9289-b53228a3b492}</v>
             </o>
@@ -14127,11 +14580,14 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
                 <v>886efc73-96fb-40ad-95e4-dcab42048be5</v>
                 <v>ExecuteMouseUp</v>
                 <v>41ee7809-ea43-4aca-9d5f-2a5818bbf819</v>
+                <v>ExecuteValueChanged</v>
+                <v>4ec9edb6-2364-410d-bbdf-8b1efb5558a0</v>
                 <v>GetElementInfo</v>
                 <v>ef31cba4-1c5e-4cf4-964c-e78991245035</v>
                 <v>Initialize</v>
                 <v>52149e5e-7e48-4661-8912-a65694f99112</v>
               </d>
+              <d n="FbProperties" t="CaseInsensitiveHashtable" />
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{2d403b51-283f-44e8-9ec3-98520146e215}</v>
             </o>
@@ -14139,43 +14595,14 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
           </o>
           <v n="LastUsedIdForIdentifier">185</v>
           <o n="TextDocument" t="TextDocument">
-            <a n="TextLines" cet="TextLine">
-              <o>
-                <v n="Id">14L</v>
-                <n n="Tag" />
-                <v n="Text">"VAR_IN_OUT"</v>
-              </o>
-              <o>
-                <v n="Id">15L</v>
-                <n n="Tag" />
-                <v n="Text">"	stMcAxisOnline			: ST_McAxisOnline;	"</v>
-              </o>
-              <o>
-                <v n="Id">1L</v>
-                <n n="Tag" />
-                <v n="Text">"END_VAR"</v>
-              </o>
-              <o>
-                <v n="Id">20L</v>
-                <n n="Tag" />
-                <v n="Text">"VAR"</v>
-              </o>
-              <o>
-                <v n="Id">21L</v>
-                <n n="Tag" />
-                <v n="Text">"	lrMaxLag				: LREAL;"</v>
-              </o>
-              <o>
-                <v n="Id">22L</v>
-                <n n="Tag" />
-                <v n="Text">"	lrMinLag                : LREAL;"</v>
-              </o>
-              <o>
-                <v n="Id">10L</v>
-                <n n="Tag" />
-                <v n="Text">"END_VAR"</v>
-              </o>
-            </a>
+            <v n="TextBlobForSerialisation">"VAR_IN_OUT
+	stMcAxisOnline			: ST_McAxisOnline;	
+END_VAR
+VAR
+	lrMaxLag				: LREAL;
+	lrMinLag                : LREAL;
+END_VAR"</v>
+            <n n="LineInfoPersistence" />
           </o>
           <v n="GvlCreated">false</v>
           <n n="LMEntry" />
@@ -14205,12 +14632,14 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
             </d2>
             <v n="Version">1</v>
           </o>
+          <n n="FrameInterfaceDataModel" />
         </o>
       </Data>
       <TypeList>
         <Type n="ArrayList">System.Collections.ArrayList</Type>
         <Type n="BackgroundSettings">{1038f12c-dd4b-4f96-87a3-a350fe8f3552}</Type>
         <Type n="Boolean">System.Boolean</Type>
+        <Type n="Byte">System.Byte</Type>
         <Type n="CaseInsensitiveHashtable">{7df88604-7ac5-4e36-91c4-55e4fdad3e68}</Type>
         <Type n="ComplexInput">{1de566f6-72a7-494c-9353-9a418172c96e}</Type>
         <Type n="DialogPositionSetting">{16f3f59a-37ad-4991-a1af-cc2926974e08}</Type>
@@ -14222,9 +14651,8 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
         <Type n="Guid">System.Guid</Type>
         <Type n="Hashtable">System.Collections.Hashtable</Type>
         <Type n="HotkeyConfiguration">{6b108d46-58af-4e41-a3f4-174d8f160cc4}</Type>
-        <Type n="IInputAction[]">_3S.CoDeSys.VisualElem.IInputAction[], VisualElem, Version=3.5.13.0, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="InputBoxInputAction">{e8e7e747-f76f-4dee-ab1c-b9637e41ac26}</Type>
-        <Type n="InputBoxInputAction[]">_3S.CoDeSys.VisualElem.InputBoxInputAction[], VisualElem.plugin, Version=3.5.13.32, Culture=neutral, PublicKeyToken=null</Type>
+        <Type n="InputBoxInputAction[]">_3S.CoDeSys.VisualElem.InputBoxInputAction[], VisualElem.plugin, Version=4.8.0.0, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="Int16">System.Int16</Type>
         <Type n="Int32">System.Int32</Type>
         <Type n="Int64">System.Int64</Type>
@@ -14232,9 +14660,8 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
         <Type n="NamedStyleFont">{9e842eb2-1463-4af2-b605-4fbb17044f94}</Type>
         <Type n="String">System.String</Type>
         <Type n="STSnippetInputAction">{6302d3fe-6ea5-4c42-819a-a9734a133b3d}</Type>
-        <Type n="STSnippetInputAction[]">_3S.CoDeSys.VisualElem.STSnippetInputAction[], VisualElem.plugin, Version=3.5.13.32, Culture=neutral, PublicKeyToken=null</Type>
+        <Type n="STSnippetInputAction[]">_3S.CoDeSys.VisualElem.STSnippetInputAction[], VisualElem.plugin, Version=4.8.0.0, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="TextDocument">{f3878285-8e4f-490b-bb1b-9acbb7eb04db}</Type>
-        <Type n="TextLine">{a5de0b0b-1cb5-4913-ac21-9d70293ec00d}</Type>
         <Type n="UInt16">System.UInt16</Type>
         <Type n="UInt32">System.UInt32</Type>
         <Type n="VisualElemCollection">{ef9d0b20-c96e-48db-b361-2ded4063150e}</Type>
@@ -14259,6 +14686,10 @@ stMcAxisOnline.mcPower.lrOverride			:= 100.0;"</v>
             <v n="Internal">false</v>
             <v n="DialogIsOpaque">false</v>
             <v n="DialogIsOpaqueIsSet">false</v>
+            <v n="UseParentSizeProperties">false</v>
+            <n n="ToolboxCategory" />
+            <n n="ToolboxImageId" />
+            <v n="IsCustomCategory">false</v>
           </o>
         </Data>
         <TypeList>
